@@ -23,7 +23,19 @@ local about = Window:MakeTab({
 about:AddParagraph("您的用户名:"," "..game.Players.LocalPlayer.Name.."")
 about:AddParagraph("您的注入器:"," "..identifyexecutor().."")
 about:AddParagraph("您当前服务器的ID"," "..game.GameId.."")
+Tab:AddButton({
+   Name = "点击复制群号",
+   Callback = function()
+    setclipboard("934692663")
+   end
+})
 
+Tab:AddButton({
+   Name = "点击复制作者QQ号",
+   Callback = function()
+    setclipboard("2032685964")
+   end
+})
 local Tab = Window:MakeTab({
     Name = "作者",
     Icon = "rbxassetid://93566402708060",
