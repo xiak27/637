@@ -38,6 +38,25 @@ Tab:AddButton({
 })
 
 local Tab = Window:MakeTab({
+    Name = "复制",
+    Icon = "rbxassetid://93566402708060",
+    PremiumOnly = false
+})
+
+Tab:AddButton({
+   Name = "点击复制群号",
+   Callback = function()
+    setclipboard("934692663")
+   end
+})
+
+Tab:AddButton({
+   Name = "点击复制作者QQ号",
+   Callback = function()
+    setclipboard("2032685964")
+   end
+})
+local Tab = Window:MakeTab({
     Name = "脚本",
     Icon = "rbxassetid://93566402708060",
     PremiumOnly = false
