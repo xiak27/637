@@ -137,7 +137,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/dingding123hhh/tt/mai
 Tab:AddButton({
     Name = "飞车",
     Callback = function()
-loadstring(game:HttpGet("https://pastebin.com/raw/G3GnBCyC", true))()
+loadstring(game:HttpGet('https://pastebin.com/raw/G3GnBCyC'), true))()
       end 
 })
 
