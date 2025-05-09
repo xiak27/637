@@ -120,14 +120,6 @@ loadstring(game:HttpGet("https://pastebin.com/raw/sZpgTVas"))()
 })
 
 Tab:AddButton({
-    Name = "死亡笔记",
-    Callback = function()
-local Tab = Window:MakeTab({
-loadstring(game:HttpGet("https://raw.githubusercontent.com/dingding123hhh/tt/main/%E6%AD%BB%E4%BA%A1%E7%AC%94%E8%AE%B0%20(1).txt"))()
-     end 
-})
-
-Tab:AddButton({
     Name = "汉化穿墙",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/TtmScripter/OtherScript/main/Noclip"))()
