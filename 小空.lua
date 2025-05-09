@@ -122,7 +122,7 @@ loadstring(game:HttpGet("https://pastebin.com/raw/sZpgTVas"))()
 Tab:AddButton({
     Name = "汉化穿墙",
     Callback = function()
-loadstring(game:HttpGet('https://raw.githubusercontent.com/TtmScripter/OtherScript/main/Noclip')))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/TtmScripter/OtherScript/main/Noclip"))()
      end 
 })
 
