@@ -118,11 +118,12 @@ Tab:AddButton({
 loadstring(game:HttpGet("https://pastebin.com/raw/sZpgTVas"))()
      end 
 })
-
+local Tab = Window:MakeTab({
     Name = "俄亥俄州",
     Icon = "rbxassetid://93566402708060",
     PremiumOnly = false
 })
+
 Tab:AddButton({
     Name = "XA",
     Callback = function()
