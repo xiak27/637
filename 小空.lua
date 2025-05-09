@@ -164,33 +164,33 @@ Tab:AddButton({
     Name = "刷印钞机",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/XTScripthub/Ohio/main/MoneyPrinterFinder"))()
-     end 
+    end 
 })
 
 Tab:AddButton({
     Name = "传送加自动工作",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/LOLking123456/ohio/main/Roblox232"))()
-     end 
+    end 
 })
 
 Tab:AddButton({
     Name = "杀戮光环",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Xingtaiduan/Script/main/Games/Ohio"))()
-     end 
+    end 
 })
 
 Tab:AddButton({
     Name = "外国1",
     Callback = function()
 loadstring(game:HttpGet('https://pastebin.com/raw/0MqfXpvY'), true))()
-     end 
+    end 
 })
 
 Tab:AddButton({
     Name = "国内1",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua"))()
-     end 
+    end 
 })
