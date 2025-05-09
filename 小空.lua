@@ -113,6 +113,20 @@ loadstring(game:HttpGet(('https://pastebin.com/raw/Zuw5T7DP'),true))()
     end 
 })
 
+Tab:AddToggle({
+	Name = "夜视",
+	Default = false,
+	Callback = function(Value)
+
+		    game.Lighting.Ambient = Color3.new(1, 1, 1)
+
+		else
+
+		    game.Lighting.Ambient = Color3.new(0, 0, 0)
+
+		end
+    end
+})
 Tab:AddButton({
     Name = "玩家加入游戏提示",
     Callback = function()
@@ -126,7 +140,22 @@ Tab:AddButton({
 loadstring(game:HttpGet("https://pastebin.com/raw/sZpgTVas"))()
      end 
 })
+
+Tab:AddButton({
+    Name = "死亡笔记",
+    Callback = function()
 local Tab = Window:MakeTab({
+loadstring(game:HttpGet("https://raw.githubusercontent.com/dingding123hhh/tt/main/%E6%AD%BB%E4%BA%A1%E7%AC%94%E8%AE%B0%20(1).txt"))()
+     end 
+})
+
+Tab:AddButton({
+    Name = "汉化穿墙",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/TtmScripter/OtherScript/main/Noclip"))()
+     end 
+})
+
     Name = "俄亥俄州",
     Icon = "rbxassetid://93566402708060",
     PremiumOnly = false
@@ -136,4 +165,11 @@ Tab:AddButton({
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Xingtaiduan/Script/refs/heads/main/Games/Ohio"))()
     end
+})
+
+Tab:AddButton({
+    Name = "1",
+    Callback = function()
+loadstring(game:HttpGet('https://pastebin.com/raw/hkvHeHed),true))()
+     end 
 })
