@@ -136,4 +136,3 @@ Tab:AddButton({
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Xingtaiduan/Script/refs/heads/main/Games/Ohio"))()
     end
 })
-	})
