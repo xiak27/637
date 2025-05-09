@@ -136,10 +136,4 @@ Tab:AddButton({
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Xingtaiduan/Script/refs/heads/main/Games/Ohio"))()
     end
 })
-
-Tab:AddButton({
-    Name = "1",
-    Callback = function()
-loadstring(game:HttpGet("https://pastebin.com/raw/hkvHeHed",true))()
-     end 
-})
+	})
