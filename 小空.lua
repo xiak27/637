@@ -130,23 +130,3 @@ local Tab = Window:MakeTab({
     PremiumOnly = false
 })
 
-Tab:AddButton({
-    Name = "刷印钞机",
-    Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/XTScripthub/Ohio/main/MoneyPrinterFinder"))()
-    end 
-})
-
-Tab:AddButton({
-    Name = "杀戮光环",
-    Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Xingtaiduan/Script/main/Games/Ohio"))()
-    end 
-})
-
-Tab:AddButton({
-    Name = "国内1",
-    Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua"))()
-    end 
-})
