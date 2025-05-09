@@ -118,6 +118,35 @@ Tab:AddButton({
 loadstring(game:HttpGet("https://pastebin.com/raw/sZpgTVas"))()
      end 
 })
+
+Tab:AddButton({
+    Name = "iw指令",
+    Callback = function()
+local Tab = Window:MakeTab({
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
+     end 
+})
+
+Tab:AddButton({
+    Name = "旋转",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/dingding123hhh/tt/main/%E6%97%8B%E8%BD%AC.lua"))()
+      end 
+})
+
+Tab:AddButton({
+    Name = "飞车",
+    Callback = function()
+loadstring(game:HttpGet("https://pastebin.com/raw/G3GnBCyC", true))()
+      end 
+})
+
+Tab:AddButton({
+    Name = "隐身",
+    Callback = function()
+loadstring(game:HttpGet('https://pastebin.com/raw/nwGEvkez'))()
+     end 
+})
 local Tab = Window:MakeTab({
     Name = "俄亥俄州",
     Icon = "rbxassetid://93566402708060",
@@ -129,4 +158,46 @@ Tab:AddButton({
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Xingtaiduan/Script/refs/heads/main/Games/Ohio"))()
     end
+})
+
+Tab:AddButton({
+    Name = "刷印钞机",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/XTScripthub/Ohio/main/MoneyPrinterFinder"))()
+     end 
+})
+
+Tab:AddButton({
+    Name = "传送加自动工作",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/LOLking123456/ohio/main/Roblox232"))()
+     end 
+})
+
+Tab:AddButton({
+    Name = "杀戮光环",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Xingtaiduan/Script/main/Games/Ohio"))()
+     end 
+})
+
+Tab:AddButton({
+    Name = "死亡笔记",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/dingding123hhh/tt/main/%E6%AD%BB%E4%BA%A1%E7%AC%94%E8%AE%B0%20(1).txt"))()
+     end 
+})
+
+Tab:AddButton({
+    Name = "外国1",
+    Callback = function()
+loadstring(game:HttpGet("https://pastebin.com/raw/0MqfXpvY", true))()
+     end 
+})
+
+Tab:AddButton({
+    Name = "国内1",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua"))()
+     end 
 })
