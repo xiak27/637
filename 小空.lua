@@ -182,13 +182,6 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Xingtaiduan/Script/ma
 })
 
 Tab:AddButton({
-    Name = "死亡笔记",
-    Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/dingding123hhh/tt/main/%E6%AD%BB%E4%BA%A1%E7%AC%94%E8%AE%B0%20(1).txt"))()
-     end 
-})
-
-Tab:AddButton({
     Name = "外国1",
     Callback = function()
 loadstring(game:HttpGet("https://pastebin.com/raw/0MqfXpvY", true))()
