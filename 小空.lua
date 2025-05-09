@@ -184,7 +184,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Xingtaiduan/Script/ma
 Tab:AddButton({
     Name = "外国1",
     Callback = function()
-loadstring(game:HttpGet("https://pastebin.com/raw/0MqfXpvY", true))()
+loadstring(game:HttpGet('https://pastebin.com/raw/0MqfXpvY'), true))()
      end 
 })
 
