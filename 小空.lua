@@ -125,8 +125,9 @@ Tab:AddToggle({
 		    game.Lighting.Ambient = Color3.new(0, 0, 0)
 
 		end
-    end
+  	end
 })
+
 Tab:AddButton({
     Name = "玩家加入游戏提示",
     Callback = function()
