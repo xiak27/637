@@ -101,7 +101,7 @@ local Tab = Window:MakeTab({
 
 Tab:AddButton({
     Name = "飞行",
-    Callback = function()   loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))()
+    Callback = function()   loadstring(game:HttpGet("https://github.com/user-attachments/files/20122339/xiaoFly.txt"))()
       end    
 })
 
