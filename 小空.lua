@@ -118,14 +118,6 @@ Tab:AddButton({
 loadstring(game:HttpGet("https://pastebin.com/raw/sZpgTVas"))()
      end 
 })
-
-Tab:AddButton({
-    Name = "旋转",
-    Callback = function()
-loadstring(game:HttpGet('https://raw.githubusercontent.com/dingding123hhh/tt/main/%E6%97%8B%E8%BD%AC.lua')))()
-      end 
-})
-
 Tab:AddButton({
     Name = "隐身",
     Callback = function()
