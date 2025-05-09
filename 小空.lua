@@ -138,13 +138,6 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/XTScripthub/Ohio/main
 })
 
 Tab:AddButton({
-    Name = "传送加自动工作",
-    Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/LOLking123456/ohio/main/Roblox232"))()
-    end 
-})
-
-Tab:AddButton({
     Name = "杀戮光环",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Xingtaiduan/Script/main/Games/Ohio"))()
