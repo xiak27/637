@@ -120,24 +120,9 @@ loadstring(game:HttpGet("https://pastebin.com/raw/sZpgTVas"))()
 })
 
 Tab:AddButton({
-    Name = "iw指令",
-    Callback = function()
-local Tab = Window:MakeTab({
-loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
-     end 
-})
-
-Tab:AddButton({
     Name = "旋转",
     Callback = function()
 loadstring(game:HttpGet('https://raw.githubusercontent.com/dingding123hhh/tt/main/%E6%97%8B%E8%BD%AC.lua')))()
-      end 
-})
-
-Tab:AddButton({
-    Name = "飞车",
-    Callback = function()
-loadstring(game:HttpGet('https://pastebin.com/raw/G3GnBCyC'), true))()
       end 
 })
 
@@ -171,13 +156,6 @@ Tab:AddButton({
     Name = "杀戮光环",
     Callback = function()
 loadstring(game:HttpGet('https://raw.githubusercontent.com/Xingtaiduan/Script/main/Games/Ohio')))()
-    end 
-})
-
-Tab:AddButton({
-    Name = "外国1",
-    Callback = function()
-loadstring(game:HttpGet('https://pastebin.com/raw/0MqfXpvY'), true))()
     end 
 })
 
