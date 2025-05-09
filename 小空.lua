@@ -154,13 +154,6 @@ local Tab = Window:MakeTab({
 })
 
 Tab:AddButton({
-    Name = "XA",
-    Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Xingtaiduan/Script/refs/heads/main/Games/Ohio"))()
-    end
-})
-
-Tab:AddButton({
     Name = "刷印钞机",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/XTScripthub/Ohio/main/MoneyPrinterFinder"))()
