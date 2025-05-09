@@ -112,6 +112,19 @@ Tab:AddButton({
 loadstring(game:HttpGet(('https://pastebin.com/raw/Zuw5T7DP'),true))()
     end 
 })
+
+Tab:AddButton({
+    Name = "玩家加入游戏提示",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/boyscp/scriscriptsc/main/bbn.lua"))()
+     end 
+})
+
+Tab:AddButton({
+    Name = "获得管理员权限",
+    Callback = function()
+loadstring(game:HttpGet("https://pastebin.com/raw/sZpgTVas"))()
+
 local Tab = Window:MakeTab({
     Name = "俄亥俄州",
     Icon = "rbxassetid://93566402708060",
