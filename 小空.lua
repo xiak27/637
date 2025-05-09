@@ -122,7 +122,7 @@ loadstring(game:HttpGet("https://pastebin.com/raw/sZpgTVas"))()
 Tab:AddButton({
     Name = "汉化穿墙",
     Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/TtmScripter/OtherScript/main/Noclip"))()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/TtmScripter/OtherScript/main/Noclip')))()
      end 
 })
 
@@ -140,6 +140,6 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Xingtaiduan/Script/re
 Tab:AddButton({
     Name = "1",
     Callback = function()
-loadstring(game:HttpGet('https://pastebin.com/raw/hkvHeHed),true))()
+loadstring(game:HttpGet("https://pastebin.com/raw/hkvHeHed",true))()
      end 
 })
