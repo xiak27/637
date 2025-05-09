@@ -113,21 +113,6 @@ loadstring(game:HttpGet(('https://pastebin.com/raw/Zuw5T7DP'),true))()
     end 
 })
 
-Tab:AddToggle({
-	Name = "夜视",
-	Default = false,
-	Callback = function(Value)
-
-		    game.Lighting.Ambient = Color3.new(1, 1, 1)
-
-		else
-
-		    game.Lighting.Ambient = Color3.new(0, 0, 0)
-
-		end
-  	end
-})
-
 Tab:AddButton({
     Name = "玩家加入游戏提示",
     Callback = function()
