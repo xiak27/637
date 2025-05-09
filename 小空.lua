@@ -107,13 +107,6 @@ Tab:AddButton({
 })
 
 Tab:AddButton({
-    Name = "速度",
-    Callback = function()
-loadstring(game:HttpGet(('https://pastebin.com/raw/Zuw5T7DP'),true))()
-    end 
-})
-
-Tab:AddButton({
     Name = "玩家加入游戏提示",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/boyscp/scriscriptsc/main/bbn.lua"))()
