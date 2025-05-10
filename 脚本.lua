@@ -36,3 +36,17 @@ Tab:AddButton({
     Callback = function()
        end
 })
+
+Tab:AddButton({
+    Name = "已经骗到的入(QQ)",
+    Callback = function()
+       end
+})
+
+Tab:AddButton({
+    Name = "3983570071",
+    Callback = function()
+       end
+})
+
+
