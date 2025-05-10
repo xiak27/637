@@ -1,4 +1,4 @@
-local CoreGui = game:GetService("StarterGui")
+72local CoreGui = game:GetService("StarterGui")
 
 CoreGui:SetCore("SendNotification", {
     Title = "小空脚本",
@@ -319,17 +319,6 @@ local Tab = Window:MakeTab({
 })
 
 local Section = Tab:AddSection({
-	Name = "脚本"
-})
-
-Tab:AddButton({
-	Name = "1",
-	Callback = function()
-loadstring(game:HttpGet("https://pastebin.com/raw/De4aYHDY"))()
-  	end
-})
-
-local Section = Tab:AddSection({
 	Name = "功能"
 })
 
@@ -452,17 +441,13 @@ Tab:AddButton({
 	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(760.6033325195312, 96.96992492675781, 2475.405029296875)
   	end
 })
-
 local Tab = Window:MakeTab({
-	Name = "🌚小黑子",
+	Name = "监狱人生",
 	Icon = "rbxassetid://93566402708060",
 	PremiumOnly = false
 })
 
-Tab:AddButton({
-  Name = "1",
-  Callback = function()
-  loadstring(game:HttpGet(('https://raw.githubusercontent.com/malicious-dev/RobloxScripting/main/swordwarrior.lua'),true))()
+    Callback = function() loadstring(game:HttpGet(('https://raw.githubusercontent.com/malicious-dev/RobloxScripting/main/swordwarrior.lua'),true))()
   end
 })
 
