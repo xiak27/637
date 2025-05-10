@@ -63,13 +63,6 @@ local Tab = Window:MakeTab({
 })
 
 Tab:AddButton({
-	Name = "黑客脚本",
-	Callback = function()
-loadstring(game: HttpGet("https://raw.githubusercontent.com/BirthScripts/Scripts/main/c00l.lua"))()
-    end
-})
-
-Tab:AddButton({
     Name = "皮",
     Callback = function()
 loadstring(game:HttpGet(('https://raw.githubusercontent.com/xiaopi77/xiaopi77/main/QQ1002100032-Roblox-Pi-script.lua')))()
@@ -253,6 +246,7 @@ Tab:AddButton({
 loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
      end 
 })
+
 Tab:AddButton({
     Name = "爬墙",
     Callback = function()
@@ -269,13 +263,6 @@ loadstring(game:HttpGet(('https://raw.githubusercontent.com/SkrillexMe/SkrillexL
 
 Tab:AddButton({
     Name = "甩飞1",
-    Callback = function()
-loadstring(game:HttpGet("https://pastebin.com/raw/zqyDSUWX"))()
-     end 
-})
-
-Tab:AddButton({
-    Name = "甩飞2",
     Callback = function()
 loadstring(game:HttpGet("https://pastebin.com/raw/zqyDSUWX"))()
      end 
