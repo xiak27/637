@@ -791,37 +791,3 @@ end)
 about:Button("操人脚本",function()
 loadstring(game:HttpGet("https://pastebin.com/raw/bzmhRgKL"))();
 end)
-
-about:Button("操b脚本", function()
-  local SimpleSexGUI = Instance.
-
-local UITab7 = win:Tab("『画质光影』",'87437251671184')
-
-local about = UITab7:section("『画质光影』",true)
-
-about:Button("光影", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/MZEEN2424/Graphics/main/Graphics.xml"))()
-end)
-
-about:Button("光影滤镜", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/MZEEN2424/Graphics/main/Graphics.xml"))()
-end)
-
-about:Button("超高画质",function()
-loadstring(game:HttpGet("https://pastebin.com/raw/jHBfJYmS"))()
-end)
-
-about:Button("光影V4",function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/MZEEN2424/Graphics/main/Graphics.xml"))()
-end)
-
-about:Button("RTX高仿",function()
-loadstring(game:HttpGet('https://pastebin.com/raw/Bkf0BJb3'))()
-end)
-
-about:Button("光影深", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/MZEEN2424/Graphics/main/Graphics.xml"))()
-end)
-about:Button("光影浅", function()
-    loadstring(game:HttpGet("https://pastebin.com/raw/jHBfJYmS"))()
-end)
