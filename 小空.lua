@@ -311,7 +311,8 @@ Tab:AddButton({
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/pijiaobenMSJMleng/ehhdvdhd/refs/heads/main/xiaopi77xiaopi77mainQQ1002100032-Roblox-Pi-script.lua"))()
      end 
-})local Tab = Window:MakeTab({
+})
+local Tab = Window:MakeTab({
 	Name = "监狱人生",
 	Icon = "rbxassetid://93566402708060",
 	PremiumOnly = false
