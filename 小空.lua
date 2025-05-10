@@ -1,4 +1,4 @@
-72local CoreGui = game:GetService("StarterGui")
+local CoreGui = game:GetService("StarterGui")
 
 CoreGui:SetCore("SendNotification", {
     Title = "小空脚本",
