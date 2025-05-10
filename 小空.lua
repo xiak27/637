@@ -277,6 +277,7 @@ loadstring(game:HttpGet("https://pastebin.com/raw/zqyDSUWX"))()
 Tab:AddButton({
     Name = "甩飞2",
     Callback = function()
+loadstring(game:HttpGet("https://pastebin.com/raw/zqyDSUWX"))()
      end 
 })
 
