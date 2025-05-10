@@ -447,10 +447,6 @@ local Tab = Window:MakeTab({
 	PremiumOnly = false
 })
 
-    Callback = function() loadstring(game:HttpGet(('https://raw.githubusercontent.com/malicious-dev/RobloxScripting/main/swordwarrior.lua'),true))()
-  end
-})
-
 Tab:AddButton({
   Name = "2",
   Callback = function()
