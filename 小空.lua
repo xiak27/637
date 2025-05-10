@@ -825,31 +825,3 @@ end)
 about:Button("光影浅", function()
     loadstring(game:HttpGet("https://pastebin.com/raw/jHBfJYmS"))()
 end)
-
-local UITab8 = win:Tab("『无限Robux』",'87437251671184')
-
-local about = UITab8:section("『无限Robux』",true)
-
-about:Button("20Robux",function()
-loadstring(game:HttpGet('https://raw.githubusercontent.com/CloudX-ScriptsWane/White-ash-script/main/Free%20Robux.LUA'))()
-end)
-
-about:Button("50Robux",function()
-loadstring(game:HttpGet('https://raw.githubusercontent.com/CloudX-ScriptsWane/White-ash-script/main/Free%20Robux.LUA'))()
-end)
-
-about:Button("100Robux",function()
-loadstring(game:HttpGet('https://raw.githubusercontent.com/CloudX-ScriptsWane/White-ash-script/main/Free%20Robux.LUA'))()
-end)
-
-about:Button("200Robux",function()
-loadstring(game:HttpGet('https://raw.githubusercontent.com/CloudX-ScriptsWane/White-ash-script/main/Free%20Robux.LUA'))()
-end)
-
-about:Button("500Robux",function()
-loadstring(game:HttpGet('https://raw.githubusercontent.com/CloudX-ScriptsWane/White-ash-script/main/Free%20Robux.LUA'))()
-end)
-
-about:Button("1000Robux",function()
-loadstring(game:HttpGet('https://raw.githubusercontent.com/CloudX-ScriptsWane/White-ash-script/main/Free%20Robux.LUA'))()
-end)
