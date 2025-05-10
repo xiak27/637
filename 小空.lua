@@ -299,17 +299,3 @@ local Tab = Window:MakeTab({
     Icon = "rbxassetid://93566402708060",
     PremiumOnly = false
 })
-
-Tab:AddButton({
-    Name = "1",
-    Callback = function()
-loadstring(game:HttpGet("https://pastebin.com/raw/hkvHeHed",true))()
-    end
-})
-
-Tab:AddButton({
-    Name = "皮",
-    Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/pijiaobenMSJMleng/ehhdvdhd/refs/heads/main/xiaopi77xiaopi77mainQQ1002100032-Roblox-Pi-script.lua"))()
-     end 
-})
