@@ -28,7 +28,7 @@ function Ripple(obj)
 		Ripple.BackgroundColor3 = Color3.fromRGB(139, 0, 255)
 		Ripple.BackgroundTransparency = 1.000
 		Ripple.ZIndex = 8
-		Ripple.Image = "rbxassetid://108228172425291"
+		Ripple.Image = "rbxassetid://17308508437"
 		Ripple.ImageTransparency = 0.800
 		Ripple.ScaleType = Enum.ScaleType.Fit
 		Ripple.ImageColor3 = Color3.fromRGB(139, 0, 255)
@@ -455,7 +455,7 @@ Open.Draggable = true
 Open.Image = "rbxassetid://74123920743171"
 Open.MouseButton1Click:Connect(function()
   Main.Visible = not Main.Visible
-  Open.Image = Main.Visible and "rbxassetid://108228172425291" or "rbxassetid://97896659024899" --开关的图
+  Open.Image = Main.Visible and "rbxassetid://14889175548" or "rbxassetid://73572745126963" --开关的图
 end)
 
 UICorner_2.CornerRadius = UDim.new(0, 90)
@@ -576,14 +576,14 @@ UIG.Parent = Open
           SectionOpen.BorderSizePixel = 0
           SectionOpen.Position = UDim2.new(0, -33, 0, 5)
           SectionOpen.Size = UDim2.new(0, 26, 0, 26)
-          SectionOpen.Image = "rbxassetid://108228172425291"
+          SectionOpen.Image = "rbxassetid://74500791957544"
           
           SectionOpened.Name = "SectionOpened"
           SectionOpened.Parent = SectionOpen
           SectionOpened.BackgroundTransparency = 1.000
           SectionOpened.BorderSizePixel = 0
           SectionOpened.Size = UDim2.new(0, 26, 0, 26)
-          SectionOpened.Image = "rbxassetid://74123920743171"
+          SectionOpened.Image = "rbxassetid://123396243346098"
           SectionOpened.ImageTransparency = 1.000
     
           SectionToggle.Name = "SectionToggle"
