@@ -106,15 +106,6 @@ loadstring(game:HttpGet(('https://pastefy.ga/tWBTcE4R/raw'),true))()
 
 })
 
-Tab:AddButton({
-    Name = "🤓🤓🤓",
-    Callback = function()
-Tab:AddButton({
-while true do
-    print("我们正在攻击roblox服务器")
-task.wait(0.01)
-end
-
 	Name = "让别让别人控制自己",
 
 	Callback = function()
