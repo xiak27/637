@@ -10,11 +10,8 @@ CoreGui:SetCore("SendNotification", {
     Duration = 5, 
 })
 print("反挂机开启")
-		local vu = game:GetService("VirtualUser")
-		game:GetService("Players").LocalPlayer.Idled:connect(function()
-		   vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
-		   wait(1)
-		   vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+		local vu = game:GetService("VirtualUser")	game:GetService("Players").LocalPlayer.Idled:connect(function()  vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+		   wait(1)   vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
 		end)
 local OrionLib = loadstring(game:HttpGet('https://pastebin.com/raw/iXGNieAz'))()
 local Window = OrionLib:MakeWindow({Name ="小空脚本", HidePremium = false, SaveConfig = true,IntroText = "小空脚本", ConfigFolder = "小空脚本"})
@@ -109,7 +106,6 @@ Tab:AddButton({
 Tab:AddButton({
 	Name = "变成蛇",
 	Callback = function()
-
 loadstring(game:HttpGet(('https://pastefy.ga/tWBTcE4R/raw'),true))()
 
 	end
@@ -119,28 +115,23 @@ loadstring(game:HttpGet(('https://pastefy.ga/tWBTcE4R/raw'),true))()
 	Name = "让别让别人控制自己",
 	Callback = function()
 loadstring(game:HttpGet(('https://pastefy.ga/a7RTi4un/raw'),true))()
-
 	end
-
 })
 
 Tab:AddButton({
 	Name = "子弹追踪",
-	Callback = function()
-     loadstring(game:HttpGet("https://pastebin.com/raw/1AJ69eRG"))()
+	Callback = function()   loadstring(game:HttpGet("https://pastebin.com/raw/1AJ69eRG"))()
   	end    
 })
 
 Tab:AddButton({
 	Name = "点击传送工具",
 	Callback = function()
-
 mouse = game.Players.LocalPlayer:GetMouse() tool = Instance.new("Tool") tool.RequiresHandle = false tool.Name = "[FE] TELEPORT TOOL" tool.Activated:connect(function() local pos = mouse.Hit+Vector3.new(0,2.5,0) pos = CFrame.new(pos.X,pos.Y,pos.Z) game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = pos end) tool.Parent = game.Players.LocalPlayer.Backpack
 	end
 })
 
 Tab:AddButton({
-
 	Name = "无敌",
 	Callback = function()
 local lp = game:GetService "Players".LocalPlayer
@@ -181,43 +172,37 @@ end
 
 Tab:AddButton({
  Name = "死亡笔记",
-	Callback = function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/xiaopi77/xiaopi77/main/1_1.txt_2024-08-08_153358.OTed.lua"))()
+	Callback = function()   loadstring(game:HttpGet("https://raw.githubusercontent.com/xiaopi77/xiaopi77/main/1_1.txt_2024-08-08_153358.OTed.lua"))()
   	end    
 })
 
 Tab:AddButton({
 	Name = "透视",
-	Callback = function()
-    loadstring(game:HttpGet('https://pastebin.com/raw/MA8jhPWT'))()
+	Callback = function()   loadstring(game:HttpGet('https://pastebin.com/raw/MA8jhPWT'))()
   	end    
 })
 
 Tab:AddButton({
 	Name = "吸人",
-	Callback = function()
-     loadstring(game:HttpGet('https://pastebin.com/raw/hQSBGsw2'))()
+	Callback = function()    loadstring(game:HttpGet('https://pastebin.com/raw/hQSBGsw2'))()
   	end    
 })
 
 Tab:AddButton({
 	Name = "人物无敌（不适用）",
-	Callback = function()
-     loadstring(game:HttpGet('https://pastebin.com/raw/H3RLCWWZ'))()
+	Callback = function()   loadstring(game:HttpGet('https://pastebin.com/raw/H3RLCWWZ'))()
 	end    
 })
 
 Tab:AddButton({
 	Name = "踢人脚本",
-	Callback = function()
-     loadstring(game:HttpGet("https://raw.githubusercontent.com/xiaopi77/xiaopi77/main/c8320f69b6aa4f5d.txt_2024-08-08_214628.OTed.lua"))()
+	Callback = function()  loadstring(game:HttpGet("https://raw.githubusercontent.com/xiaopi77/xiaopi77/main/c8320f69b6aa4f5d.txt_2024-08-08_214628.OTed.lua"))()
   	end    
 })
 
 Tab:AddButton({
 	Name = "隐身(E)",
-	Callback = function()
- loadstring(game:HttpGet('https://pastebin.com/raw/nwGEvkez'))()
+	Callback = function() loadstring(game:HttpGet('https://pastebin.com/raw/nwGEvkez'))()
   	end    
 })
 Tab:AddSlider({
@@ -228,8 +213,7 @@ Tab:AddSlider({
 	Color = Color3.fromRGB(255,255,255),
 	Increment = 1,
 	ValueName = "数值",
-	Callback = function(Value)
-		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+	Callback = function(Value)	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
 	end    
 })
 Tab:AddSlider({
@@ -240,8 +224,7 @@ Tab:AddSlider({
 	Color = Color3.fromRGB(255,255,255),
 	Increment = 1,
  ValueName = "数值",
-	Callback = function(Value)
-	game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+	Callback = function(Value)	game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
   end  
 })
 
@@ -249,8 +232,7 @@ Tab:AddTextbox({
 	name = "跳跃高度设置",
 	Default = "",
 	TextDisappear = true,
-	Callback = function(Value)
-	game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+	Callback = function(Value)	game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
 	end
 })
 
@@ -258,8 +240,7 @@ Tab:AddTextbox({
 	Name = "移动速度设置",
 	Default = "",
 	TextDisappear = true,
-	Callback = function(Value)
-	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+	Callback = function(Value)	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
 	end
 })
 
