@@ -1,18 +1,24 @@
+loadstring(game:HttpGet("https://pastebin.com/raw/9fFu43FF"))()
+
+game:GetService("StarterGui"):SetCore("SendNotification",{ Title = "缝合勿喷"; Text ="缝合脚本"; Duration = 4; })
+
 local CoreGui = game:GetService("StarterGui")
+
 CoreGui:SetCore("SendNotification", {
     Title = "小空脚本",
     Text = "正在加载（反挂机已开启）",
     Duration = 5, 
 })
 print("反挂机开启")
-        local vu = game:GetService("VirtualUser")
-        game:GetService("Players").LocalPlayer.Idled:connect(function()
-           vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
-           wait(1)
-           vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
-        end)
-local OrionLib =loadstring(game:HttpGet("https://pastebin.com/raw/FUEx0f3G"))()
-local Window = OrionLib:MakeWindow({Name = "小空脚本", HidePremium = false, SaveConfig = true,IntroText = "欢迎使用小空脚本", ConfigFolder = "欢迎使用小空脚本"})
+		local vu = game:GetService("VirtualUser")
+		game:GetService("Players").LocalPlayer.Idled:connect(function()
+		   vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+		   wait(1)
+		   vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+		end)
+local OrionLib = loadstring(game:HttpGet('https://pastebin.com/raw/iXGNieAz'))()
+local Window = OrionLib:MakeWindow({Name ="小空脚本", HidePremium = false, SaveConfig = true,IntroText = "小空脚本", ConfigFolder = "小空脚本"})
+
 local about = Window:MakeTab({
     Name = "小空脚本",
     Icon = "rbxassetid://93566402708060",
