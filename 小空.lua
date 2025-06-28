@@ -107,9 +107,7 @@ Tab:AddButton({
 })
 
 Tab:AddButton({
-
 	Name = "变成蛇",
-
 	Callback = function()
 
 loadstring(game:HttpGet(('https://pastefy.ga/tWBTcE4R/raw'),true))()
@@ -119,9 +117,7 @@ loadstring(game:HttpGet(('https://pastefy.ga/tWBTcE4R/raw'),true))()
 })
 
 	Name = "让别让别人控制自己",
-
 	Callback = function()
-
 loadstring(game:HttpGet(('https://pastefy.ga/a7RTi4un/raw'),true))()
 
 	end
