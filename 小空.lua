@@ -82,6 +82,13 @@ Tab:AddButton({
 loadstring(game:HttpGet("https://raw.githubusercontent.com/LENG8123/UI/refs/heads/main/ohio%20library.txt"))()        
     end
 })
+
+Tab:AddButton({
+    Name = "大司马中心V5",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/whenheer/gfop/refs/heads/main/Protected_4687541665942703.lua"))()
+     end 
+})
 local Tab = Window:MakeTab({
     Name = "通用",
     Icon = "rbxassetid://93566402708060",
@@ -465,35 +472,14 @@ loadstring(game:HttpGet("https://pastebin.com/raw/sZpgTVas"))()
      end 
 })
 local Tab = Window:MakeTab({
-    Name = "俄亥俄州",
+    Name = "俄亥俄州功能",
     Icon = "rbxassetid://93566402708060",
     PremiumOnly = false
 })
 
 Tab:AddButton({
-	Name = "俄亥俄州脚本",	
-	Callback = function()
-loadstring(game:HttpGet("https://pastebin.com/raw/hkvHeHed",true))()
-  	end
+    Name = "叶子",
+    Callback = function()
+loadstring(game:HttpGet("https://getnative.cc/script/loader"))()
+     end 
 })
-
-Tab:AddButton({
-	Name = "俄亥俄州指令王",	
-	Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/longshulol/long/main/longshu/Ohio"))()
-  	end				
-})
-
-Tab:AddButton({
- Name = "俄亥俄州推荐脚本",
- Callback = function()
-loadstring(game:HttpGet("\104\116\116\112\115\58\47\47\115\99\114\105\112\116\115\46\118\105\115\117\114\117\115\46\100\101\118\47\111\104\105\111\47\115\111\117\114\99\101"))()
-    end
-})
-
-Tab:AddButton({
-	Name = "物品tp自动拾取",
-	Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Mstir16/legocheats/main/archive/Ohio./script.lua"))()
-    end
-})	
