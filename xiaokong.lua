@@ -41,7 +41,7 @@ Heartbeat:Connect(HeartbeatUpdate)
 game:GetService("StarterGui"):SetCore("SendNotification",{ Title = "小空脚本"; Text ="启动中"; Duration = 2; })
 game:GetService("StarterGui"):SetCore("SendNotification",{ Title = "正在加载"; Text ="启动完毕"; Duration = 4; })
 
-local ui = loadstring(game:HttpGet("https://raw.githubusercontent.com/whenheer/hhi/refs/heads/main/%E5%A4%A7%E5%8F%B8%E9%A9%AC%E8%84%9A%E6%9C%AC%E4%B8%AD%E5%BF%83ui%E6%9C%80%E6%96%B0%E7%89%88.lua"))();        
+local ui = loadstring(game:HttpGet("https://raw.githubusercontent.com/xiak27/637/refs/heads/main/%E8%84%9A%E6%9C%ACUI.lua"))();        
 local win = ui:new("小空脚本")
 --
 local UITab1 = win:Tab("信息",'7734068321')
