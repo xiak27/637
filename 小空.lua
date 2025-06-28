@@ -136,139 +136,79 @@ Tab:AddButton({
 })
 
 Tab:AddButton({
-
 	Name = "点击传送工具",
-
 	Callback = function()
 
 mouse = game.Players.LocalPlayer:GetMouse() tool = Instance.new("Tool") tool.RequiresHandle = false tool.Name = "[FE] TELEPORT TOOL" tool.Activated:connect(function() local pos = mouse.Hit+Vector3.new(0,2.5,0) pos = CFrame.new(pos.X,pos.Y,pos.Z) game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = pos end) tool.Parent = game.Players.LocalPlayer.Backpack
-
 	end
-
 })
 
 Tab:AddButton({
 
 	Name = "无敌",
-
 	Callback = function()
-
 local lp = game:GetService "Players".LocalPlayer
-
 if lp.Character:FindFirstChild "Head" then
-
     local char = lp.Character
-
     char.Archivable = true
-
     local new = char:Clone()
-
     new.Parent = workspace
-
     lp.Character = new
-
     wait(2)
-
     local oldhum = char:FindFirstChildWhichIsA "Humanoid"
-
     local newhum = oldhum:Clone()
-
     newhum.Parent = char
-
     newhum.RequiresNeck = false
-
     oldhum.Parent = nil
-
     wait(2)
-
     lp.Character = char
-
     new:Destroy()
-
     wait(1)
-
-    newhum:GetPropertyChangedSignal("Health"):Connect(
-
+   newhum:GetPropertyChangedSignal("Health"):Connect(
         function()
-
             if newhum.Health <= 0 then
-
                 oldhum.Parent = lp.Character
-
                 wait(1)
-
                 oldhum:Destroy()
-
             end
-
         end)
-
     workspace.CurrentCamera.CameraSubject = char
-
     if char:FindFirstChild "Animate" then
-
         char.Animate.Disabled = true
-
         wait(.1)
-
         char.Animate.Disabled = false
-
     end
-
     lp.Character:FindFirstChild "Head":Destroy()
-
 end
-
 end
-
 })
 
 Tab:AddButton({
-
-	Name = "死亡笔记",
-
+ Name = "死亡笔记",
 	Callback = function()
-
-     loadstring(game:HttpGet("https://raw.githubusercontent.com/xiaopi77/xiaopi77/main/1_1.txt_2024-08-08_153358.OTed.lua"))()
-
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/xiaopi77/xiaopi77/main/1_1.txt_2024-08-08_153358.OTed.lua"))()
   	end    
-
 })
 
 Tab:AddButton({
-
 	Name = "透视",
-
 	Callback = function()
-
-     loadstring(game:HttpGet('https://pastebin.com/raw/MA8jhPWT'))()
-
+    loadstring(game:HttpGet('https://pastebin.com/raw/MA8jhPWT'))()
   	end    
-
 })
 
 Tab:AddButton({
-
 	Name = "吸人",
-
 	Callback = function()
-
      loadstring(game:HttpGet('https://pastebin.com/raw/hQSBGsw2'))()
-
   	end    
-
 })
 
 Tab:AddButton({
-
 	Name = "人物无敌（不适用）",
-
 	Callback = function()
-
      loadstring(game:HttpGet('https://pastebin.com/raw/H3RLCWWZ'))()
-
 	end    
-
 })
 
 Tab:AddButton({
@@ -279,140 +219,78 @@ Tab:AddButton({
 })
 
 Tab:AddButton({
-
 	Name = "隐身(E)",
-
 	Callback = function()
-
-	 loadstring(game:HttpGet('https://pastebin.com/raw/nwGEvkez'))()
-
+ loadstring(game:HttpGet('https://pastebin.com/raw/nwGEvkez'))()
   	end    
-
 })
 Tab:AddSlider({
-
 	Name = "速度",
-
 	Min = 16,
-
 	Max = 200,
-
 	Default = 16,
-
 	Color = Color3.fromRGB(255,255,255),
-
 	Increment = 1,
-
 	ValueName = "数值",
-
 	Callback = function(Value)
-
 		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
-
 	end    
-
 })
-
 Tab:AddSlider({
-
 	Name = "跳跃高度",
-
 	Min = 50,
-
-	Max = 200,
-
+ Max = 200,
 	Default = 50,
-
 	Color = Color3.fromRGB(255,255,255),
-
 	Increment = 1,
-
-	ValueName = "数值",
-
+ ValueName = "数值",
 	Callback = function(Value)
-
-		game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
-
-	end    
-
+	game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+  end  
 })
 
 Tab:AddTextbox({
-
-	Name = "跳跃高度设置",
-
+	name = "跳跃高度设置",
 	Default = "",
-
 	TextDisappear = true,
-
 	Callback = function(Value)
-
-		game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
-
+	game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
 	end
-
 })
 
 Tab:AddTextbox({
-
 	Name = "移动速度设置",
-
 	Default = "",
-
 	TextDisappear = true,
-
 	Callback = function(Value)
-
-		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
-
+	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
 	end
-
 })
 
 Tab:AddTextbox({
-
 	Name = "重力设置",
-
 	Default = "",
-
 	TextDisappear = true,
-
 	Callback = function(Value)
-
 		game.Workspace.Gravity = Value
-
 	end
-
 })
 
 Tab:AddToggle({
-
 	Name = "夜视",
-
 	Default = false,
-
 	Callback = function(Value)
-
 		if Value then
-
-		    game.Lighting.Ambient = Color3.new(1, 1, 1)
-
+	    game.Lighting.Ambient = Color3.new(1, 1, 1)
 		else
-
 		    game.Lighting.Ambient = Color3.new(0, 0, 0)
-
 		end
-
 	end
-
 })
 
 Tab:AddButton({
-
 	Name = "光影V4",
-
 	Callback = function()
-
 loadstring(game:HttpGet("https://raw.githubusercontent.com/MZEEN2424/Graphics/main/Graphics.xml"))()
      end
 })
