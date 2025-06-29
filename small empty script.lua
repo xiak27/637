@@ -511,6 +511,7 @@ Tab:AddButton({
 loadstring(game:HttpGet("https://raw.githubusercontent.com/gumanba/Scripts/refs/heads/main/DeadRails", true))()
      end 
 })
+
 Tab:AddButton({
     Name = "刷券",
     Callback = function()
@@ -524,6 +525,7 @@ Tab:AddButton({
 getgenv().auto_bond=true loadstring(game:HttpGet(' https://raw.githubusercontent.com/m00ndiety/Dead-rails/refs/heads/main/Auto-Win-With-Bonds'))()
      end 
 })
+
 Tab:AddButton({
     Name = "无拉回飞行",
     Callback = function()
