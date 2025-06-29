@@ -38,7 +38,7 @@ local function HeartbeatUpdate()
 end
 Start = tick()
 Heartbeat:Connect(HeartbeatUpdate)
-game:GetService("StarterGui"):SetCore("SendNotification",{ Title = "纯缝合"; Text ="..."; Duration = 4; })
+game:GetService("StarterGui"):SetCore("SendNotification",{ Title = "测试阶段"; Text ="勿外传"; Duration = 4; })
 
 local CoreGui = game:GetService("StarterGui")
 
@@ -476,12 +476,5 @@ Tab:AddButton({
     Name = "沙脚本",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/114514lzkill/ShaHUB/refs/heads/main/ShaHUB.lua"))()
-     end 
-})
-
-Tab:AddButton({
-    Name = "AUT脚本",
-    Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/sannin9000/scripts/main/aut.lua"))()
      end 
 })
