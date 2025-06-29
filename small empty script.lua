@@ -277,7 +277,7 @@ Tab:AddSlider({
 	Increment = 1,
 	ValueName = "数值",
 	Callback = function(Value)	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
-	end    
+	      end    
 })
 
 Tab:AddButton({
@@ -285,5 +285,5 @@ Tab:AddButton({
     Default = false,
 	Callback = function(Value)
 loadstring(game:HttpGet("https://pastebin.com/raw/V5PQy3y0", true))()
-	end
+	       end
 })
