@@ -286,3 +286,43 @@ Tab:AddSlider({
 	Callback = function(Value)	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
 	end    
 })
+
+Tab:AddButton({
+	Name = "传送玩家",
+	Callback = function()      	loadstring(game:HttpGet(("https://pastebin.com/raw/YNVbeqPy")))()
+  	end
+})
+
+Tab:AddButton({
+	Name = "无限跳",
+    Default = false,
+	Callback = function(Value)
+loadstring(game:HttpGet("https://pastebin.com/raw/V5PQy3y0", true))()
+  	end
+})
+
+Tab:AddButton({
+	Name = "替身",
+	Callback = function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/SkrillexMe/SkrillexLoader/main/SkrillexLoadMain')))()
+    end
+})
+
+Tab:AddButton({
+	Name = "阿尔宙斯自瞄",
+	Callback = function()     loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/chillz-workshop/main/Arceus%20Aimbot.lua"))()    
+  	end    
+})
+
+Tab:AddButton({
+	Name = "铁拳",
+	Callback = function()      loadstring(game:HttpGet('https://raw.githubusercontent.com/0Ben1/fe/main/obf_rf6iQURzu1fqrytcnLBAvW34C9N55kS9g9G3CKz086rC47M6632sEd4ZZYB0AYgV.lua.txt'))()
+  	end    
+})
+
+Tab:AddButton({
+	Name = "爬墙",
+	Callback = function()
+loadstring(game:HttpGet("https://pastebin.com/raw/zXk4Rq2r"))()
+  end
+})
