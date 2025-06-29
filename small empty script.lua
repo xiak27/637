@@ -504,31 +504,3 @@ Tab:AddButton({
 loadstring(game:HttpGet("https://raw.githubusercontent.com/SpiderScriptRB/Dead-Rails-SpiderXHub-Script/refs/heads/main/SpiderXHub%202.0.txt"))()
      end 
 })
-
-Tab:AddButton({
-    Name = "不知道叫啥2",
-    Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/gumanba/Scripts/refs/heads/main/DeadRails", true))()
-     end 
-})
-
-Tab:AddButton({
-    Name = "刷券",
-    Callback = function()
-getgenv().AutoExecute = true(loadstring or load)(game:HttpGet("https://raw.githubusercontent.com/hungquan99/HungHUB/main/loader.lua"))()
-     end 
-})
-
-Tab:AddButton({
-    Name = "刷券2",
-    Callback = function()
-getgenv().auto_bond=true loadstring(game:HttpGet(' https://raw.githubusercontent.com/m00ndiety/Dead-rails/refs/heads/main/Auto-Win-With-Bonds'))()
-     end 
-})
-
-Tab:AddButton({
-    Name = "无拉回飞行",
-    Callback = function()
-loadstring(game:HttpGet("https://rawscripts.net/raw/Dead-Rails-Alpha-FLY-in-Dead-Rails-One-Click-Script-KEYLESS-by-Moondiety-39179"))()
-     end 
-})
