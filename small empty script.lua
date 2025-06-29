@@ -447,3 +447,41 @@ Tab:AddButton({
 loadstring("\108\111\97\100\115\116\114\105\110\103\40\103\97\109\101\58\72\116\116\112\71\101\116\40\34\104\116\116\112\115\58\47\47\114\97\119\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\66\73\78\106\105\97\111\98\122\120\54\47\66\73\78\106\105\97\111\47\109\97\105\110\47\88\75\46\84\88\84\34\41\41\40\41\10")()
      end 
 })
+
+Tab:AddButton({
+    Name = "宿傩脚本",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Sukuna2134/Sukuna2/refs/heads/main/%E5%AE%BF%E5%82%A9%E8%84%9A%E6%9C%AC%E5%85%8D%E8%B4%B9%E7%89%88"))()
+     end 
+})
+
+Tab:AddButton({
+    Name = "红叶脚本",
+    Callback = function()
+loadstring(game:HttpGet("https://getnative.cc/script/loader"))()
+     end 
+})
+local Section = Tab:AddSection({
+        Name = "比较野鸡的脚本"
+})
+
+Tab:AddButton({
+    Name = "黄某脚本",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/CNHM/asg/refs/heads/main/XHMHUB.lua"))()
+     end 
+})
+
+Tab:AddButton({
+    Name = "沙脚本",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/114514lzkill/ShaHUB/refs/heads/main/ShaHUB.lua"))()
+     end 
+})
+
+Tab:AddButton({
+    Name = "AUT脚本",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/sannin9000/scripts/main/aut.lua"))()
+     end 
+})
