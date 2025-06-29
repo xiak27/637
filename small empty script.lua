@@ -507,7 +507,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/SpiderScriptRB/Dead-R
 })
 
 Tab:AddButton({
-    Name = "不知道叫啥",
+    Name = "不知道叫啥2",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/gumanba/Scripts/refs/heads/main/DeadRails", true))()
      end 
