@@ -238,8 +238,7 @@ Tab:AddToggle({
 
 player:AddButton({
 	Name = "fps显示",
-	Callback = function()
-      	loadstring(game:HttpGet('https://raw.githubusercontent.com/1201for/littlegui/main/FPS-Counter'))()
+	Callback = function() 	loadstring(game:HttpGet('https://raw.githubusercontent.com/1201for/littlegui/main/FPS-Counter'))()
   	end
 })
 
