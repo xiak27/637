@@ -244,13 +244,6 @@ Tab:AddButton({
 })
 
 Tab:AddButton({
-  Name = "飞车",
-  Callback = function()
-  loadstring(game:HttpGet("https://pastebin.com/raw/G3GnBCyC", true))()
-  end
-})
-
-Tab:AddButton({
   Name = "铁拳",
   Callback = function()
   loadstring(game:HttpGet('https://raw.githubusercontent.com/0Ben1/fe/main/obf_rf6iQURzu1fqrytcnLBAvW34C9N55kS9g9G3CKz086rC47M6632sEd4ZZYB0AYgV.lua.txt'))()
@@ -261,4 +254,26 @@ Tab:AddButton({
 	Name = "电脑键盘",
 	Callback = function()     loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt", true))()
   	end    
+})
+
+player:AddTextbox({
+	Name = "移动速度",
+	Default = "",
+	TextDisappear = true,
+	Callback = function(Value)	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+	end
+})
+
+player:AddTextbox({
+	Name = "跳跃高度",
+	Default = "",
+	TextDisappear = true,
+	Callback = function(Value)	game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+	end
+})
+
+player:AddButton({
+	Name = "fps显示",
+	Callback = function()      	loadstring(game:HttpGet('https://raw.githubusercontent.com/1201for/littlegui/main/FPS-Counter'))()
+  	end
 })
