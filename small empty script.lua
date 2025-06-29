@@ -217,3 +217,9 @@ Tab:AddTextbox({
 	end
 })
 
+Tab:AddButton({
+	Name = "光影V4",
+	Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/MZEEN2424/Graphics/main/Graphics.xml"))()
+  end
+})
