@@ -227,7 +227,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/MZEEN2424/Graphics/ma
 Tab:AddToggle({
 	Name = "夜视",
 	Default = false,
-	Callback = function(Value)
+	Callback = function()
 		if Value then
 		    game.Lighting.Ambient = Color3.new(1, 1, 1)
 		else
