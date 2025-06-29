@@ -351,3 +351,56 @@ Tab:AddButton({
 loadstring(game:HttpGet("https://raw.githubusercontent.com/RunDTM/roblox-bluescreen/main/bsod.lua"))()
      end 
 })
+local Tab = Window:MakeTab({
+	Name = "各大脚本中心",
+	Icon = "rbxassetid://7734068321",
+	PremiumOnly = false
+})
+Tab:AddButton({
+    Name = "皮脚本",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/xiaopi77/xiaopi77/main/QQ1002100032-Roblox-Pi-script.lua"))()
+     end 
+})
+
+Tab:AddButton({
+    Name = "XA",
+    Callback = function()
+loadstring(game:HttpGet("https://xingtaiduan.pythonanywhere.com/Loader"))()
+     end 
+})
+
+Tab:AddButton({
+    Name = "云脚本",
+    Callback = function()
+loadstring(game:HttpGet("https://github.com/CloudX-ScriptsWane/White-ash-script/raw/main/Beta.lua", true))()
+     end 
+})
+
+Tab:AddButton({
+    Name = "霖溺脚本",
+    Callback = function()
+loadstring(game:HttpGet("https://shz.al/~LINNI_G/免费.txt"))()
+     end 
+})
+
+Tab:AddButton({
+    Name = "sansHub",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/iopjklbnmsss/qingchiscript/refs/heads/main/script"))()
+     end 
+})
+
+Tab:AddButton({
+    Name = "HOHOHub",
+    Callback = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI'))()
+     end 
+})
+
+Tab:AddButton({
+    Name = "MS脚本",
+    Callback = function()
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/002c19202c9946e6047b0c6e0ad51f84.lua"))()
+     end 
+})
