@@ -267,3 +267,23 @@ Tab:AddSlider({
 	Callback = function(Value)		game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
 	end    
 })
+
+Tab:AddSlider({
+	Name = "速度",
+	Min = 16,
+	Max = 200,
+	Default = 16,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "数值",
+	Callback = function(Value)	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+	end    
+})
+
+Tab:AddButton({
+	Name = "无限跳",
+    Default = false,
+	Callback = function(Value)
+loadstring(game:HttpGet("https://pastebin.com/raw/V5PQy3y0", true))()
+	end
+})
