@@ -507,6 +507,12 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/SpiderScriptRB/Dead-R
 })
 
 Tab:AddButton({
+    Name = "不知道叫啥",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/gumanba/Scripts/refs/heads/main/DeadRails", true))()
+     end 
+})
+Tab:AddButton({
     Name = "刷券",
     Callback = function()
 getgenv().AutoExecute = true(loadstring or load)(game:HttpGet("https://raw.githubusercontent.com/hungquan99/HungHUB/main/loader.lua"))()
@@ -516,7 +522,7 @@ getgenv().AutoExecute = true(loadstring or load)(game:HttpGet("https://raw.githu
 Tab:AddButton({
     Name = "刷券2",
     Callback = function()
-loadstring(game:HttpGet("https://raw.gitcode.com/linnbnb/linnb/raw/main/%E6%96%B0%E7%9A%84%E5%86%8D%E8%A7%81"))()
+oadstring(game:HttpGet("https://raw.githubusercontent.com/ArdyBotzz/NatHub/refs/heads/master/NatHub.lua"))()
      end 
 })
 
