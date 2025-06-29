@@ -461,6 +461,14 @@ Tab:AddButton({
 loadstring(game:HttpGet("https://getnative.cc/script/loader"))()
      end 
 })
+
+Tab:AddButton({
+    Name = "神金脚本",
+    Callback = function()
+loadstring(game:HttpGet("https://github.com/shenjin55/qq-927274889/raw/refs/heads/main/roblox-shen-jin.lua"))()
+     end 
+})
+
 local Section = Tab:AddSection({
         Name = "比较野鸡的脚本"
 })
