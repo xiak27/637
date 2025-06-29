@@ -477,6 +477,7 @@ Tab:AddButton({
     Name = "黄某脚本",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/HBC63/CHINAHM/refs/heads/main/HMHUB.lua"))()
+    end
 })
 
 Tab:AddButton({
