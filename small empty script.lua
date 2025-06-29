@@ -256,8 +256,14 @@ Tab:AddButton({
   	end    
 })
 
-player:AddButton({
-	Name = "fps显示",
-	Callback = function()      	loadstring(game:HttpGet('https://raw.githubusercontent.com/1201for/littlegui/main/FPS-Counter'))()
-  	end
+Tab:AddSlider({
+	Name = "跳跃高度",
+	Min = 50,
+	Max = 200,
+	Default = 50,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "数值",
+	Callback = function(Value)		game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+	end    
 })
