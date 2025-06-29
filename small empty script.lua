@@ -31,7 +31,7 @@ Tab:AddParagraph("您的服务器ID"," "..game.GameId.."")
 
 local Tab = Window:MakeTab({
     Name = "通用功能",
-    Icon = "rbxassetid://93566402708060",
+    Icon = "rbxassetid://7734068321",
     PremiumOnly = false
 })
 Tab:AddButton({
