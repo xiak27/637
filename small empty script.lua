@@ -380,14 +380,15 @@ loadstring(game:HttpGet("https://github.com/CloudX-ScriptsWane/White-ash-script/
 Tab:AddButton({
     Name = "霖溺脚本",
     Callback = function()
-loadstring(game:HttpGet("https://shz.al/~LINNI_G/免费.txt"))()
+LnScript = "霖溺-免费版加载器"
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ShenJiaoBen/ScriptLoader/refs/heads/main/Linni_FreeLoader.lua"))()
      end 
 })
 
 Tab:AddButton({
     Name = "sansHub",
     Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/iopjklbnmsss/qingchiscript/refs/heads/main/script"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/iopjklbnmsss/SansHubScript/refs/heads/main/SansHub"))()
      end 
 })
 
@@ -402,5 +403,40 @@ Tab:AddButton({
     Name = "MS脚本",
     Callback = function()
 loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/002c19202c9946e6047b0c6e0ad51f84.lua"))()
+     end 
+})
+
+Tab:AddButton({
+    Name = "R脚本",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/xiaoyi-boop/rjiaoben/refs/heads/main/RJIAOBENNB.lua",true))()
+     end 
+})
+
+Tab:AddButton({
+    Name = "苏脚本",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/kukunb/kukulol/refs/heads/main/SUscript"))()
+     end 
+})
+
+Tab:AddButton({
+    Name = "情云脚本",
+    Callback = function()
+loadstring(utf8.char((function() return table.unpack({108,111,97,100,115,116,114,105,110,103,40,103,97,109,101,58,72,116,116,112,71,101,116,40,34,104,116,116,112,115,58,47,47,114,97,119,46,103,105,116,104,117,98,117,115,101,114,99,111,110,116,101,110,116,46,99,111,109,47,67,104,105,110,97,81,89,47,45,47,109,97,105,110,47,37,69,54,37,56,51,37,56,53,37,69,52,37,66,65,37,57,49,34,41,41,40,41})end)()))()
+     end 
+})
+
+Tab:AddButton({
+    Name = "大司马脚本中心V5",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/whenheer/gfop/refs/heads/main/Protected_4687541665942703.lua"))()
+     end 
+})
+
+Tab:AddButton({
+    Name = "剑客脚本",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Zer0neK/Hello/refs/heads/main/SG-V7"))()
      end 
 })
