@@ -34,6 +34,7 @@ local Tab = Window:MakeTab({
     Icon = "rbxassetid://7734068321",
     PremiumOnly = false
 })
+
 Tab:AddButton({
     Name = "玩家加入游戏提示",
     Callback = function()
