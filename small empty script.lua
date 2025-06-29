@@ -258,13 +258,6 @@ Tab:AddButton({
 })
 
 Tab:AddButton({
-	Name = "踏空",
-	Callback = function()
-loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/main/Float'))()
-   	end
-})
-
-Tab:AddButton({
 	Name = "电脑键盘",
 	Callback = function()     loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt", true))()
   	end    
