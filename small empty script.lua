@@ -265,7 +265,14 @@ Tab:AddSlider({
 	Increment = 1,
 	ValueName = "数值",
 	Callback = function(Value)		game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
-	end    
+  	end    
+})
+
+Tab:AddButton({
+	Name = "爬墙",
+	Callback = function()
+loadstring(game:HttpGet("https://pastebin.com/raw/zXk4Rq2r"))()
+  end
 })
 
 Tab:AddSlider({
@@ -277,13 +284,5 @@ Tab:AddSlider({
 	Increment = 1,
 	ValueName = "数值",
 	Callback = function(Value)	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
-	      end    
-})
-
-Tab:AddButton({
-	Name = "无限跳",
-    Default = false,
-	Callback = function(Value)
-loadstring(game:HttpGet("https://pastebin.com/raw/V5PQy3y0", true))()
-	       end
+	end    
 })
