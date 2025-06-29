@@ -522,13 +522,13 @@ getgenv().AutoExecute = true(loadstring or load)(game:HttpGet("https://raw.githu
 Tab:AddButton({
     Name = "刷券2",
     Callback = function()
-oadstring(game:HttpGet("https://raw.githubusercontent.com/ArdyBotzz/NatHub/refs/heads/master/NatHub.lua"))()
+getgenv().auto_bond=true loadstring(game:HttpGet(' https://raw.githubusercontent.com/m00ndiety/Dead-rails/refs/heads/main/Auto-Win-With-Bonds'))()
      end 
 })
-
 Tab:AddButton({
     Name = "无拉回飞行",
     Callback = function()
 loadstring(game:HttpGet("https://rawscripts.net/raw/Dead-Rails-Alpha-FLY-in-Dead-Rails-One-Click-Script-KEYLESS-by-Moondiety-39179"))()
      end 
 })
+
