@@ -137,3 +137,35 @@ Tab:AddButton({
 loadstring(game:HttpGet("https://pastebin.com/raw/zqyDSUWX"))()
      end 
 })
+
+Tab:AddTextbox({
+	Name = "自定义头部大小",
+	Default = "",
+	TextDisappear = true,
+	Callback = function(Value)		game:GetService('RunService').RenderStepped:connect(function()
+if _G.Disabled then
+for i,v in next, game:GetService('Players'):GetPlayers() do
+if v.Name ~= game:GetService('Players').LocalPlayer.Name then
+pcall(function()
+v.Character.Head.Size = Vector3.new(_G.HeadSize,_G.HeadSize,_G.HeadSize)
+v.Character.Head.Transparency = 1
+v.Character.Head.BrickColor = BrickColor.new("Red")
+v.Character.Head.Material = "Neon"
+v.Character.Head.CanCollide = false
+v.Character.Head.Massless = true
+end)
+end
+end
+end
+end)    
+	end
+})
+
+Tab:AddTextbox({
+	Name = "重力设置",
+	Default = "",
+	TextDisappear = true,
+	Callback = function(Value)
+		game.Workspace.Gravity = Value
+	end
+})
