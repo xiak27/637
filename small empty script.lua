@@ -277,3 +277,16 @@ mouse = game.Players.LocalPlayer:GetMouse() tool = Instance.new("Tool") tool.Req
 	end
 })
 
+Tab:AddButton({
+    Name = "操人脚本",
+    Callback = function()
+loadstring(game:HttpGet("https://pastebin.com/raw/bzmhRgKL"))()
+     end 
+})
+
+Tab:AddButton({
+    Name = "宙斯自瞄",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/chillz-workshop/main/Arceus%20Aimbot.lua"))()
+     end 
+})
