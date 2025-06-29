@@ -485,22 +485,3 @@ Tab:AddButton({
 loadstring(game:HttpGet("https://raw.githubusercontent.com/114514lzkill/ShaHUB/refs/heads/main/ShaHUB.lua"))()
      end 
 })
-
-local Tab = Window:MakeTab({
-	Name = "死铁轨",
-	Icon = "rbxassetid://7734068321",
-	PremiumOnly = false
-})
-Tab:AddButton({
-    Name = "红叶",
-    Callback = function()
-loadstring(game:HttpGet("https://xingtaiduan.pythonanywhere.com/Loader"))()
-     end 
-})
-
-Tab:AddButton({
-    Name = "不知道叫啥",
-    Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/SpiderScriptRB/Dead-Rails-SpiderXHub-Script/refs/heads/main/SpiderXHub%202.0.txt"))()
-     end 
-})
