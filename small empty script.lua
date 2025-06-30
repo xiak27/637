@@ -506,6 +506,28 @@ loadstring(game:HttpGet("https://xingtaiduan.pythonanywhere.com/Loader"))()
 })
 
 Tab:AddButton({
+    Name = "sansHub",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/iopjklbnmsss/SansHubScript/refs/heads/main/SansHub"))()
+     end 
+})
+
+Tab:AddButton({
+    Name = "TN Hub",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/thiennrb7/Script/refs/heads/main/Bringall"))()
+     end 
+})
+
+Tab:AddButton({
+    Name = "Nat Hub",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ArdyBotzz/NatHub/refs/heads/master/NatHub.lua"))()
+     end 
+})
+
+
+Tab:AddButton({
     Name = "不知道叫啥",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/SpiderScriptRB/Dead-Rails-SpiderXHub-Script/refs/heads/main/SpiderXHub%202.0.txt"))()
@@ -515,16 +537,59 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/SpiderScriptRB/Dead-R
 Tab:AddButton({
     Name = "不知道叫啥2",
     Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/gumanba/Scripts/refs/heads/main/DeadRails", true))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/debunked69/Solixreworkkeysystem/refs/heads/main/solix%20new%20keyui.lua"))()
      end 
 })
 
 Tab:AddButton({
     Name = "不知道叫啥3",
     Callback = function()
+loadstring(game:HttpGet("https://rawscripts.net/raw/Dead-Rails-Alpha-Best-keyless-op-script-insta-kill-mobs-31507"))()
+     end 
+})
+
+Tab:AddButton({
+    Name = "不知道叫啥4",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Dex-Bear/Vxezehub/refs/heads/main/VxezeHubMain"))()
+     end 
+})
+
+Tab:AddButton({
+    Name = "不知道叫啥5",
+    Callback = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/Markklol/aw/refs/heads/main/Protected/DRailsv2.lua'))() 
+     end 
+})
+
+Tab:AddButton({
+    Name = "不知道叫啥6",
+    Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/hassanxzayn-lua/NEOXHUBMAIN/refs/heads/main/loader", true))()
      end 
 })
+
+Tab:AddButton({
+    Name = "不知道叫啥7",
+    Callback = function()
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/e1cfd93b113a79773d93251b61af1e2f.lua"))()
+     end 
+})
+
+Tab:AddButton({
+    Name = "不知道叫啥8",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/tbao143/thaibao/refs/heads/main/TbaoHubDeadRails"))()
+     end 
+})
+
+Tab:AddButton({
+    Name = "不知道叫啥9",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Mrpopcatfrombupge/FernHub/refs/heads/main/DeadRailsFarm", true))()
+     end 
+})
+
 Tab:AddButton({
     Name = "刷券",
     Callback = function()
