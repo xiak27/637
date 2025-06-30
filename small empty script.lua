@@ -735,3 +735,227 @@ Tab:AddButton({
 loadstring(game:HttpGet("https://raw.githubusercontent.com/iwantsom3/script/refs/heads/main/Gag"))()
      end 
 })
+
+Tab:AddButton({
+    Name = "1",
+    Callback = function()
+-- 基础设置
+local FOV = 100
+local SMOOTHNESS = 10
+local PREDICTION_DISTANCE = 5
+local AIM_KEY = Enum.KeyCode.E
+local GUI_COLOR = Color3.fromRGB(128, 0, 128)
+
+-- 服务引用
+local RunService = game:GetService("RunService")
+local UserInputService = game:GetService("UserInputService")
+local Players = game:GetService("Players")
+local Player = Players.LocalPlayer
+local Camera = workspace.CurrentCamera
+
+-- 创建FOV可视化圆环
+local FOVRing = Drawing.new("Circle")
+FOVRing.Visible = true
+FOVRing.Thickness = 2
+FOVRing.Color = Color3.fromRGB(0, 255, 0)
+FOVRing.Filled = false
+FOVRing.Radius = FOV
+FOVRing.Position = Camera.ViewportSize / 2
+
+-- 创建GUI界面
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Name = "AimAssistantGUI"
+ScreenGui.Parent = Player:WaitForChild("PlayerGui")
+
+local MainFrame = Instance.new("Frame")
+MainFrame.Name = "MainFrame"
+MainFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 35)
+MainFrame.BorderColor3 = GUI_COLOR
+MainFrame.BorderSizePixel = 2
+MainFrame.Position = UDim2.new(0.3, 0, 0.3, 0)
+MainFrame.Size = UDim2.new(0.4, 0, 0.4, 0)
+MainFrame.Active = true
+MainFrame.Draggable = true
+MainFrame.Parent = ScreenGui
+
+-- UI元素创建函数
+local function createLabel(name, text, position)
+    local label = Instance.new("TextLabel")
+    label.Name = name
+    label.Text = text
+    label.TextColor3 = Color3.fromRGB(220, 220, 220)
+    label.BackgroundTransparency = 1
+    label.Position = position
+    label.Size = UDim2.new(0.8, 0, 0.15, 0)
+    label.Font = Enum.Font.GothamMedium
+    label.TextSize = 14
+    label.Parent = MainFrame
+    return label
+end
+
+local function createSlider(name, value, position)
+    local slider = Instance.new("TextBox")
+    slider.Name = name
+    slider.Text = tostring(value)
+    slider.TextColor3 = Color3.white
+    slider.BackgroundColor3 = Color3.fromRGB(45, 45, 55)
+    slider.BorderColor3 = GUI_COLOR
+    slider.BorderSizePixel = 1
+    slider.Position = position
+    slider.Size = UDim2.new(0.8, 0, 0.15, 0)
+    slider.Font = Enum.Font.Gotham
+    slider.TextSize = 14
+    slider.Parent = MainFrame
+    
+    local UICorner = Instance.new("UICorner")
+    UICorner.CornerRadius = UDim.new(0, 4)
+    UICorner.Parent = slider
+    
+    return slider
+end
+
+-- 创建UI元素
+createLabel("FovLabel", "瞄准范围", UDim2.new(0.1, 0, 0.1, 0))
+local FovSlider = createSlider("FovSlider", FOV, UDim2.new(0.1, 0, 0.3, 0))
+
+createLabel("SmoothLabel", "平滑系数", UDim2.new(0.1, 0, 0.5, 0))
+local SmoothSlider = createSlider("SmoothSlider", SMOOTHNESS, UDim2.new(0.1, 0, 0.7, 0))
+
+createLabel("PredictionLabel", "预判距离", UDim2.new(0.1, 0, 0.9, 0))
+local PredictionSlider = createSlider("PredictionSlider", PREDICTION_DISTANCE, UDim2.new(0.1, 0, 1.1, 0))
+
+-- 最小化按钮
+local MinimizeButton = Instance.new("TextButton")
+MinimizeButton.Name = "MinimizeButton"
+MinimizeButton.Text = "-"
+MinimizeButton.TextColor3 = Color3.white
+MinimizeButton.BackgroundColor3 = Color3.fromRGB(50, 50, 60)
+MinimizeButton.Position = UDim2.new(0.9, -5, 0.02, 0)
+MinimizeButton.Size = UDim2.new(0.08, 0, 0.08, 0)
+MinimizeButton.ZIndex = 2
+MinimizeButton.Parent = MainFrame
+
+local UICorner = Instance.new("UICorner")
+UICorner.CornerRadius = UDim.new(0, 8)
+UICorner.Parent = MinimizeButton
+
+-- 最小化功能
+local isMinimized = false
+MinimizeButton.MouseButton1Click:Connect(function()
+    isMinimized = not isMinimized
+    if isMinimized then
+        MainFrame:TweenSize(UDim2.new(0.1, 0, 0.1, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0.3, true)
+        MinimizeButton.Text = "+"
+    else
+        MainFrame:TweenSize(UDim2.new(0.4, 0, 0.4, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0.3, true)
+        MinimizeButton.Text = "-"
+    end
+end)
+
+-- 更新绘图函数
+local function updateFOVRing()
+    FOVRing.Position = Camera.ViewportSize / 2
+    FOVRing.Radius = FOV
+end
+
+-- 寻找最近玩家
+local function getClosestPlayer()
+    local closestPlayer = nil
+    local shortestDistance = math.huge
+    local centerScreen = Camera.ViewportSize / 2
+    
+    for _, player in ipairs(Players:GetPlayers()) do
+        if player ~= Player and player.Character then
+            local head = player.Character:FindFirstChild("Head")
+            if head then
+                local screenPos, visible = Camera:WorldToViewportPoint(head.Position)
+                if visible then
+                    local distance = (Vector2.new(screenPos.X, screenPos.Y) - centerScreen).Magnitude
+                    if distance < shortestDistance and distance < FOV then
+                        shortestDistance = distance
+                        closestPlayer = player
+                    end
+                end
+            end
+        end
+    end
+    
+    return closestPlayer
+end
+
+-- 瞄准逻辑
+local targetCFrame = Camera.CFrame
+RunService.RenderStepped:Connect(function()
+    updateFOVRing()
+    
+    if UserInputService:IsKeyDown(AIM_KEY) then
+        local closestPlayer = getClosestPlayer()
+        if closestPlayer and closestPlayer.Character then
+            local head = closestPlayer.Character:FindFirstChild("Head")
+            local rootPart = closestPlayer.Character:FindFirstChild("HumanoidRootPart")
+            
+            if head and rootPart then
+                local isMoving = rootPart.Velocity.Magnitude > 2
+                local targetPosition = head.Position
+                
+                -- 预判移动
+                if isMoving then
+                    targetPosition += rootPart.Velocity.Unit * PREDICTION_DISTANCE
+                end
+                
+                targetCFrame = CFrame.new(Camera.CFrame.Position, targetPosition)
+                Camera.CFrame = Camera.CFrame:Lerp(targetCFrame, 1 / SMOOTHNESS)
+                return
+            end
+        end
+    end
+    
+    -- 无目标时保持原视角
+    Camera.CFrame = Camera.CFrame:Lerp(Camera.CFrame, 0.1)
+end)
+
+-- 设置更新函数
+local function updateSetting(setting, value, min, max)
+    local num = tonumber(value)
+    if num and num >= min and num <= max then
+        setting = num
+        return true
+    end
+    return false
+end
+
+-- 滑块事件绑定
+FovSlider.FocusLost:Connect(function()
+    if updateSetting(FOV, FovSlider.Text, 10, 500) then
+        FovSlider.Text = tostring(FOV)
+    else
+        FovSlider.Text = tostring(FOV)
+    end
+end)
+
+SmoothSlider.FocusLost:Connect(function()
+    if updateSetting(SMOOTHNESS, SmoothSlider.Text, 1, 50) then
+        SmoothSlider.Text = tostring(SMOOTHNESS)
+    else
+        SmoothSlider.Text = tostring(SMOOTHNESS)
+    end
+end)
+
+PredictionSlider.FocusLost:Connect(function()
+    if updateSetting(PREDICTION_DISTANCE, PredictionSlider.Text, 0, 20) then
+        PredictionSlider.Text = tostring(PREDICTION_DISTANCE)
+    else
+        PredictionSlider.Text = tostring(PREDICTION_DISTANCE)
+    end
+end)
+
+-- 退出清理
+UserInputService.InputBegan:Connect(function(input)
+    if input.KeyCode == Enum.KeyCode.Delete then
+        RunService:UnbindFromRenderStep("AimAssistant")
+        FOVRing:Remove()
+        ScreenGui:Destroy()
+    end
+end)
+     end 
+})
