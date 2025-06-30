@@ -670,3 +670,52 @@ Tab:AddButton({
 loadstring(game:HttpGet("https://raw.githubusercontent.com/whalekfc/GardenGrowScript/refs/heads/main/PlayerBackpackViewer.lua"))()
      end 
 })
+
+Tab:AddButton({
+    Name = "脚本4",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/MoziIOnTop/MoziIHub/refs/heads/main/GrowaGarden"))()
+     end 
+})
+
+Tab:AddButton({
+    Name = "脚本5",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ThundarZ/Welcome/main/Main/GaG/Main.lua"))()
+     end 
+})
+
+Tab:AddButton({
+    Name = "脚本6",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))()
+     end 
+})
+
+Tab:AddButton({
+    Name = "脚本7(特别牛逼)",
+    Callback = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/SPIDROSH/Grow-a-Garden/refs/heads/main/DGAG'))()
+     end 
+})
+
+Tab:AddButton({
+    Name = "脚本8",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/GRPGaming/Key-System/refs/heads/Xycer-Hub-Script/GAZG9"))()
+     end 
+})
+
+Tab:AddButton({
+    Name = "脚本9",
+    Callback = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/gagroblo/petsspawner/refs/heads/main/seeds'))()
+     end 
+})
+
+Tab:AddButton({
+    Name = "脚本10",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/iwantsom3/script/refs/heads/main/Gag"))()
+     end 
+})
