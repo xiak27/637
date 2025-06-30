@@ -645,3 +645,25 @@ Tab:AddButton({
 loadstring(game:HttpGet("https://rawscripts.net/raw/Dead-Rails-Alpha-FLY-in-Dead-Rails-One-Click-Script-KEYLESS-by-Moondiety-39179"))()
      end 
 })
+local Tab = Window:MakeTab({
+	Name = "种植花园",
+	Icon = "rbxassetid://7734068321",
+	PremiumOnly = false
+})
+Tab:AddButton({
+    Name = "脚本1",
+    Callback = function()
+loadstring(game:HttpGet("https://rawscripts.net/raw/Grow-a-Garden-Dead-Rails-Inf-Seeds-Script-35617"))()
+     end 
+})
+
+Tab:AddButton({
+    Name = "脚本2",
+    Callback = function()
+loadstring(game:HttpGet("https://pastefy.app/eUAzqoCL/raw"))()
+     end 
+})
+
+Tab:AddButton({
+    Name = "脚本3",
+    Callback = function()
