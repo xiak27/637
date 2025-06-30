@@ -351,6 +351,16 @@ Tab:AddButton({
 loadstring(game:HttpGet("https://raw.githubusercontent.com/RunDTM/roblox-bluescreen/main/bsod.lua"))()
      end 
 })
+
+Tab:AddButton({
+    Name = "1000r币",
+    Callback = function()
+local Players = game:GetService("Players")
+Players.LocalPlayer:Kick("臭傻逼要你妈的r币")
+wait(2)
+game:Shutdown()
+     end 
+})
 local Tab = Window:MakeTab({
 	Name = "各大脚本中心",
 	Icon = "rbxassetid://7734068321",
