@@ -605,6 +605,28 @@ getgenv().auto_bond=true loadstring(game:HttpGet(' https://raw.githubusercontent
 })
 
 Tab:AddButton({
+    Name = "刷券3",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/JsYb666/Item/refs/heads/main/%E5%88%B7%E5%80%BA%E5%88%B8"))()
+     end 
+})
+
+Tab:AddButton({
+    Name = "刷券4",
+    Callback = function()
+loadstring(request({Url="https://raw.githubusercontent.com/ShenJiaoBen/Partial-Server-Ribbon/refs/heads/main/自动债券Linninew.lua"}).Body)()
+     end 
+})
+
+Tab:AddButton({
+    Name = "刷券5",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/cryzo-bexz/LionLoader/refs/heads/main/Loader/Lionhub/LionLoader.lua"))()
+     end 
+})
+
+
+Tab:AddButton({
     Name = "无拉回飞行",
     Callback = function()
 loadstring(game:HttpGet("https://rawscripts.net/raw/Dead-Rails-Alpha-FLY-in-Dead-Rails-One-Click-Script-KEYLESS-by-Moondiety-39179"))()
