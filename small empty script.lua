@@ -660,7 +660,7 @@ loadstring(game:HttpGet("https://rawscripts.net/raw/Grow-a-Garden-Dead-Rails-Inf
 Tab:AddButton({
     Name = "脚本2",
     Callback = function()
-loadstring(game:HttpGet("https://pastefy.app/eUAzqoCL/raw"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ZusumeHub/ZusumeHub/refs/heads/main/GZXAG7"))()
      end 
 })
 
@@ -693,9 +693,9 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/
 })
 
 Tab:AddButton({
-    Name = "脚本7(特别牛逼)",
+    Name = "脚本7",
     Callback = function()
-loadstring(game:HttpGet('https://raw.githubusercontent.com/SPIDROSH/Grow-a-Garden/refs/heads/main/DGAG'))()
+loadstring(game:HttpGet("https://lunor.dev/loader"))()
      end 
 })
 
