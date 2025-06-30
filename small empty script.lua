@@ -358,6 +358,12 @@ Tab:AddButton({
 local Players = game:GetService("Players")
 Players.LocalPlayer:Kick("臭傻逼要你妈的r币")
 wait(2)
+     end 
+})
+
+Tab:AddButton({
+    Name = "10000r币",
+    Callback = function()
 game:Shutdown()
      end 
 })
