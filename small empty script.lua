@@ -520,27 +520,6 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/gumanba/Scripts/refs/
 })
 
 Tab:AddButton({
-    Name = "不知道叫啥3",
-    Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/hassanxzayn-lua/NEOXHUBMAIN/refs/heads/main/loader", true))()
-     end 
-})
-
-Tab:AddButton({
-    Name = "NatHub内有刷券功能",
-    Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/ArdyBotzz/NatHub/refs/heads/master/NatHub.lua"))()
-     end 
-})
-
-Tab:AddButton({
-    Name = "sansHub",
-    Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/iopjklbnmsss/SansHubScript/refs/heads/main/SansHub"))()
-     end 
-})
-
-Tab:AddButton({
     Name = "刷券",
     Callback = function()
 getgenv().AutoExecute = true(loadstring or load)(game:HttpGet("https://raw.githubusercontent.com/hungquan99/HungHUB/main/loader.lua"))()
