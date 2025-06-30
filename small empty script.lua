@@ -665,5 +665,8 @@ loadstring(game:HttpGet("https://pastefy.app/eUAzqoCL/raw"))()
 })
 
 Tab:AddButton({
-    Name = "脚本3",
+    Name = "脚本3(玩家背包查看器)",
     Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/whalekfc/GardenGrowScript/refs/heads/main/PlayerBackpackViewer.lua"))()
+     end 
+})
