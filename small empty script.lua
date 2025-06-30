@@ -591,6 +591,13 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Mrpopcatfrombupge/Fer
 })
 
 Tab:AddButton({
+    Name = "不知道叫啥10",
+    Callback = function()
+loadstring(game:HttpGet("https://rawscripts.net/raw/Dead-Rails-Alpha-NullFire-32921"))()
+     end 
+})
+
+Tab:AddButton({
     Name = "刷券",
     Callback = function()
 getgenv().AutoExecute = true(loadstring or load)(game:HttpGet("https://raw.githubusercontent.com/hungquan99/HungHUB/main/loader.lua"))()
@@ -624,7 +631,6 @@ Tab:AddButton({
 loadstring(game:HttpGet("https://raw.githubusercontent.com/cryzo-bexz/LionLoader/refs/heads/main/Loader/Lionhub/LionLoader.lua"))()
      end 
 })
-
 
 Tab:AddButton({
     Name = "无拉回飞行",
