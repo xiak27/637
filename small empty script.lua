@@ -598,6 +598,13 @@ loadstring(game:HttpGet("https://rawscripts.net/raw/Dead-Rails-Alpha-NullFire-32
 })
 
 Tab:AddButton({
+    Name = "不知道叫啥11",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Haxxxxxxxxxxxx/DeadRails/refs/heads/main/HaxWareV2.lua"))()
+     end 
+})
+
+Tab:AddButton({
     Name = "刷券",
     Callback = function()
 getgenv().AutoExecute = true(loadstring or load)(game:HttpGet("https://raw.githubusercontent.com/hungquan99/HungHUB/main/loader.lua"))()
