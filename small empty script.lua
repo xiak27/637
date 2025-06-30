@@ -656,6 +656,20 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/cryzo-bexz/LionLoader
 })
 
 Tab:AddButton({
+    Name = "刷券6",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/fjruie/newcopybonds.github.io/refs/heads/main/ringtadead.lua"))()
+     end 
+})
+
+Tab:AddButton({
+    Name = "刷券7",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua"))()
+     end 
+})
+
+Tab:AddButton({
     Name = "无拉回飞行",
     Callback = function()
 loadstring(game:HttpGet("https://rawscripts.net/raw/Dead-Rails-Alpha-FLY-in-Dead-Rails-One-Click-Script-KEYLESS-by-Moondiety-39179"))()
