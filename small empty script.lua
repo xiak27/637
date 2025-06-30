@@ -469,6 +469,13 @@ loadstring(game:HttpGet("https://github.com/shenjin55/qq-927274889/raw/refs/head
      end 
 })
 
+Tab:AddButton({
+    Name = "叶脚本",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/roblox-ye/QQ515966991/refs/heads/main/ROBLOX-CNVIP-XIAOYE.lua"))()
+     end 
+})
+
 local Section = Tab:AddSection({
         Name = "比较野鸡的脚本"
 })
@@ -509,6 +516,34 @@ Tab:AddButton({
     Name = "不知道叫啥2",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/gumanba/Scripts/refs/heads/main/DeadRails", true))()
+     end 
+})
+
+Tab:AddButton({
+    Name = "不知道叫啥3",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/HeadHarse/Dusty/refs/heads/main/IncredibleDusk"))()ttpGet('https://pastefy.app/7vZN3EwV/raw'))()
+     end 
+})
+
+Tab:AddButton({
+    Name = "不知道叫啥4",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/hassanxzayn-lua/NEOXHUBMAIN/refs/heads/main/loader", true))()
+     end 
+})
+
+Tab:AddButton({
+    Name = "NatHub(内有刷券功能)",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ArdyBotzz/NatHub/refs/heads/master/NatHub.lua"))()
+     end 
+})
+
+Tab:AddButton({
+    Name = "sansHub",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/iopjklbnmsss/SansHubScript/refs/heads/main/SansHub"))()
      end 
 })
 
