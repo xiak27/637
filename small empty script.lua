@@ -520,6 +520,12 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/gumanba/Scripts/refs/
 })
 
 Tab:AddButton({
+    Name = "不知道叫啥3",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/hassanxzayn-lua/NEOXHUBMAIN/refs/heads/main/loader", true))()
+     end 
+})
+Tab:AddButton({
     Name = "刷券",
     Callback = function()
 getgenv().AutoExecute = true(loadstring or load)(game:HttpGet("https://raw.githubusercontent.com/hungquan99/HungHUB/main/loader.lua"))()
