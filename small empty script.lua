@@ -709,7 +709,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/GRPGaming/Key-System/
 Tab:AddButton({
     Name = "脚本9",
     Callback = function()
-loadstring(game:HttpGet("https://lunor.dev/loader"))()
+loadstring(game:HttpGet("https://scripts.alchemyhub.xyz"))()
      end 
 })
 
