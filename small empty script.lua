@@ -751,225 +751,144 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/iwantsom3/script/refs
 })
 
 Tab:AddButton({
-    Name = "1",
+    Name = "透视",
     Callback = function()
--- 基础设置
-local FOV = 100
-local SMOOTHNESS = 10
-local PREDICTION_DISTANCE = 5
-local AIM_KEY = Enum.KeyCode.E
-local GUI_COLOR = Color3.fromRGB(128, 0, 128)
+getgenv().Toggle = true -- This toggles the esp, turning it to false will turn it off
+getgenv().TC = false -- This toggles team check, turning it on will turn on team check
+local PlayerName = "Name" -- You can decide if you want the Player's name to be a display name which is "DisplayName", or username which is "Name"
 
--- 服务引用
-local RunService = game:GetService("RunService")
-local UserInputService = game:GetService("UserInputService")
-local Players = game:GetService("Players")
-local Player = Players.LocalPlayer
-local Camera = workspace.CurrentCamera
+--//Variables\\--
+local P = game:GetService("Players")
+local LP = P.LocalPlayer
 
--- 创建FOV可视化圆环
-local FOVRing = Drawing.new("Circle")
-FOVRing.Visible = true
-FOVRing.Thickness = 2
-FOVRing.Color = Color3.fromRGB(0, 255, 0)
-FOVRing.Filled = false
-FOVRing.Radius = FOV
-FOVRing.Position = Camera.ViewportSize / 2
+--//Debounce\\--
+local DB = false
 
--- 创建GUI界面
-local ScreenGui = Instance.new("ScreenGui")
-ScreenGui.Name = "AimAssistantGUI"
-ScreenGui.Parent = Player:WaitForChild("PlayerGui")
+--//Notification\\--
+game.StarterGui:SetCore("SendNotification", {
+	Title = "Notification",
+	Text = "Best ESP by.ExluZive" ,
+	Button1 = "Shut Up",
+	Duration = math.huge
+})
 
-local MainFrame = Instance.new("Frame")
-MainFrame.Name = "MainFrame"
-MainFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 35)
-MainFrame.BorderColor3 = GUI_COLOR
-MainFrame.BorderSizePixel = 2
-MainFrame.Position = UDim2.new(0.3, 0, 0.3, 0)
-MainFrame.Size = UDim2.new(0.4, 0, 0.4, 0)
-MainFrame.Active = true
-MainFrame.Draggable = true
-MainFrame.Parent = ScreenGui
+--//Loop\\--
+while task.wait() do
+	if not getgenv().Toggle then
+		break
+	end
+	if DB then 
+		return 
+	end
+	DB = true
 
--- UI元素创建函数
-local function createLabel(name, text, position)
-    local label = Instance.new("TextLabel")
-    label.Name = name
-    label.Text = text
-    label.TextColor3 = Color3.fromRGB(220, 220, 220)
-    label.BackgroundTransparency = 1
-    label.Position = position
-    label.Size = UDim2.new(0.8, 0, 0.15, 0)
-    label.Font = Enum.Font.GothamMedium
-    label.TextSize = 14
-    label.Parent = MainFrame
-    return label
+	pcall(function()
+		for i,v in pairs(P:GetChildren()) do
+			if v:IsA("Player") then
+				if v ~= LP then
+					if v.Character then
+
+						local pos = math.floor(((LP.Character:FindFirstChild("HumanoidRootPart")).Position - (v.Character:FindFirstChild("HumanoidRootPart")).Position).magnitude)
+						-- Credits to Infinite Yield for this part (pos) ^^^^^^
+
+						if v.Character:FindFirstChild("Totally NOT Esp") == nil and v.Character:FindFirstChild("Icon") == nil and getgenv().TC == false then
+							--//ESP-Highlight\\--
+							local ESP = Instance.new("Highlight", v.Character)
+
+							ESP.Name = "Totally NOT Esp"
+							ESP.Adornee = v.Character
+							ESP.Archivable = true
+							ESP.Enabled = true
+							ESP.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+							ESP.FillColor = v.TeamColor.Color
+							ESP.FillTransparency = 0.5
+							ESP.OutlineColor = Color3.fromRGB(255, 255, 255)
+							ESP.OutlineTransparency = 0
+
+							--//ESP-Text\\--
+							local Icon = Instance.new("BillboardGui", v.Character)
+							local ESPText = Instance.new("TextLabel")
+
+							Icon.Name = "Icon"
+							Icon.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+							Icon.Active = true
+							Icon.AlwaysOnTop = true
+							Icon.ExtentsOffset = Vector3.new(0, 1, 0)
+							Icon.LightInfluence = 1.000
+							Icon.Size = UDim2.new(0, 800, 0, 50)
+
+							ESPText.Name = "ESP Text"
+							ESPText.Parent = Icon
+							ESPText.BackgroundColor3 = v.TeamColor.Color
+							ESPText.BackgroundTransparency = 1.000
+							ESPText.Size = UDim2.new(0, 800, 0, 50)
+							ESPText.Font = Enum.Font.SciFi
+							ESPText.Text = v[PlayerName].." | Distance: "..pos
+							ESPText.TextColor3 = v.TeamColor.Color
+							ESPText.TextSize = 10.800
+							ESPText.TextWrapped = true
+						else
+							if v.TeamColor ~= LP.TeamColor and v.Character:FindFirstChild("Totally NOT Esp") == nil and v.Character:FindFirstChild("Icon") == nil and getgenv().TC == true then
+								--//ESP-Highlight\\--
+								local ESP = Instance.new("Highlight", v.Character)
+
+								ESP.Name = "Totally NOT Esp"
+								ESP.Adornee = v.Character
+								ESP.Archivable = true
+								ESP.Enabled = true
+								ESP.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+								ESP.FillColor = v.TeamColor.Color
+								ESP.FillTransparency = 0.5
+								ESP.OutlineColor = Color3.fromRGB(255, 255, 255)
+								ESP.OutlineTransparency = 0
+
+								--//ESP-Text\\--
+								local Icon = Instance.new("BillboardGui", v.Character)
+								local ESPText = Instance.new("TextLabel")
+
+								Icon.Name = "Icon"
+								Icon.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+								Icon.Active = true
+								Icon.AlwaysOnTop = true
+								Icon.ExtentsOffset = Vector3.new(0, 1, 0)
+								Icon.LightInfluence = 1.000
+								Icon.Size = UDim2.new(0, 800, 0, 50)
+
+								ESPText.Name = "ESP Text"
+								ESPText.Parent = Icon
+								ESPText.BackgroundColor3 = v.TeamColor.Color
+								ESPText.BackgroundTransparency = 1.000
+								ESPText.Size = UDim2.new(0, 800, 0, 50)
+								ESPText.Font = Enum.Font.SciFi
+								ESPText.Text = v[PlayerName].." | Distance: "..pos
+								ESPText.TextColor3 = v.TeamColor.Color
+								ESPText.TextSize = 10.800
+								ESPText.TextWrapped = true
+							else
+								if not v.Character:FindFirstChild("Totally NOT Esp").FillColor == v.TeamColor.Color and not v.Character:FindFirstChild("Icon").TextColor3 == v.TeamColor.Color then
+									v.Character:FindFirstChild("Totally NOT Esp").FillColor = v.TeamColor.Color
+									v.Character:FindFirstChild("Icon").TextColor3 = v.TeamColor.Color
+								else
+									if v.Character:FindFirstChild("Totally NOT Esp").Enabled == false and v.Character:FindFirstChild("Icon").Enabled == false then
+										v.Character:FindFirstChild("Totally NOT Esp").Enabled = true
+										v.Character:FindFirstChild("Icon").Enabled = true
+									else
+										if v.Character:FindFirstChild("Icon") then
+											v.Character:FindFirstChild("Icon")["ESP Text"].Text = v[PlayerName].." | Distance: "..pos
+										end
+									end
+								end
+							end
+						end
+					end
+				end
+			end
+		end
+	end)
+
+	wait()
+
+	DB = false
 end
-
-local function createSlider(name, value, position)
-    local slider = Instance.new("TextBox")
-    slider.Name = name
-    slider.Text = tostring(value)
-    slider.TextColor3 = Color3.white
-    slider.BackgroundColor3 = Color3.fromRGB(45, 45, 55)
-    slider.BorderColor3 = GUI_COLOR
-    slider.BorderSizePixel = 1
-    slider.Position = position
-    slider.Size = UDim2.new(0.8, 0, 0.15, 0)
-    slider.Font = Enum.Font.Gotham
-    slider.TextSize = 14
-    slider.Parent = MainFrame
-    
-    local UICorner = Instance.new("UICorner")
-    UICorner.CornerRadius = UDim.new(0, 4)
-    UICorner.Parent = slider
-    
-    return slider
-end
-
--- 创建UI元素
-createLabel("FovLabel", "瞄准范围", UDim2.new(0.1, 0, 0.1, 0))
-local FovSlider = createSlider("FovSlider", FOV, UDim2.new(0.1, 0, 0.3, 0))
-
-createLabel("SmoothLabel", "平滑系数", UDim2.new(0.1, 0, 0.5, 0))
-local SmoothSlider = createSlider("SmoothSlider", SMOOTHNESS, UDim2.new(0.1, 0, 0.7, 0))
-
-createLabel("PredictionLabel", "预判距离", UDim2.new(0.1, 0, 0.9, 0))
-local PredictionSlider = createSlider("PredictionSlider", PREDICTION_DISTANCE, UDim2.new(0.1, 0, 1.1, 0))
-
--- 最小化按钮
-local MinimizeButton = Instance.new("TextButton")
-MinimizeButton.Name = "MinimizeButton"
-MinimizeButton.Text = "-"
-MinimizeButton.TextColor3 = Color3.white
-MinimizeButton.BackgroundColor3 = Color3.fromRGB(50, 50, 60)
-MinimizeButton.Position = UDim2.new(0.9, -5, 0.02, 0)
-MinimizeButton.Size = UDim2.new(0.08, 0, 0.08, 0)
-MinimizeButton.ZIndex = 2
-MinimizeButton.Parent = MainFrame
-
-local UICorner = Instance.new("UICorner")
-UICorner.CornerRadius = UDim.new(0, 8)
-UICorner.Parent = MinimizeButton
-
--- 最小化功能
-local isMinimized = false
-MinimizeButton.MouseButton1Click:Connect(function()
-    isMinimized = not isMinimized
-    if isMinimized then
-        MainFrame:TweenSize(UDim2.new(0.1, 0, 0.1, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0.3, true)
-        MinimizeButton.Text = "+"
-    else
-        MainFrame:TweenSize(UDim2.new(0.4, 0, 0.4, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0.3, true)
-        MinimizeButton.Text = "-"
-    end
-end)
-
--- 更新绘图函数
-local function updateFOVRing()
-    FOVRing.Position = Camera.ViewportSize / 2
-    FOVRing.Radius = FOV
-end
-
--- 寻找最近玩家
-local function getClosestPlayer()
-    local closestPlayer = nil
-    local shortestDistance = math.huge
-    local centerScreen = Camera.ViewportSize / 2
-    
-    for _, player in ipairs(Players:GetPlayers()) do
-        if player ~= Player and player.Character then
-            local head = player.Character:FindFirstChild("Head")
-            if head then
-                local screenPos, visible = Camera:WorldToViewportPoint(head.Position)
-                if visible then
-                    local distance = (Vector2.new(screenPos.X, screenPos.Y) - centerScreen).Magnitude
-                    if distance < shortestDistance and distance < FOV then
-                        shortestDistance = distance
-                        closestPlayer = player
-                    end
-                end
-            end
-        end
-    end
-    
-    return closestPlayer
-end
-
--- 瞄准逻辑
-local targetCFrame = Camera.CFrame
-RunService.RenderStepped:Connect(function()
-    updateFOVRing()
-    
-    if UserInputService:IsKeyDown(AIM_KEY) then
-        local closestPlayer = getClosestPlayer()
-        if closestPlayer and closestPlayer.Character then
-            local head = closestPlayer.Character:FindFirstChild("Head")
-            local rootPart = closestPlayer.Character:FindFirstChild("HumanoidRootPart")
-            
-            if head and rootPart then
-                local isMoving = rootPart.Velocity.Magnitude > 2
-                local targetPosition = head.Position
-                
-                -- 预判移动
-                if isMoving then
-                    targetPosition += rootPart.Velocity.Unit * PREDICTION_DISTANCE
-                end
-                
-                targetCFrame = CFrame.new(Camera.CFrame.Position, targetPosition)
-                Camera.CFrame = Camera.CFrame:Lerp(targetCFrame, 1 / SMOOTHNESS)
-                return
-            end
-        end
-    end
-    
-    -- 无目标时保持原视角
-    Camera.CFrame = Camera.CFrame:Lerp(Camera.CFrame, 0.1)
-end)
-
--- 设置更新函数
-local function updateSetting(setting, value, min, max)
-    local num = tonumber(value)
-    if num and num >= min and num <= max then
-        setting = num
-        return true
-    end
-    return false
-end
-
--- 滑块事件绑定
-FovSlider.FocusLost:Connect(function()
-    if updateSetting(FOV, FovSlider.Text, 10, 500) then
-        FovSlider.Text = tostring(FOV)
-    else
-        FovSlider.Text = tostring(FOV)
-    end
-end)
-
-SmoothSlider.FocusLost:Connect(function()
-    if updateSetting(SMOOTHNESS, SmoothSlider.Text, 1, 50) then
-        SmoothSlider.Text = tostring(SMOOTHNESS)
-    else
-        SmoothSlider.Text = tostring(SMOOTHNESS)
-    end
-end)
-
-PredictionSlider.FocusLost:Connect(function()
-    if updateSetting(PREDICTION_DISTANCE, PredictionSlider.Text, 0, 20) then
-        PredictionSlider.Text = tostring(PREDICTION_DISTANCE)
-    else
-        PredictionSlider.Text = tostring(PREDICTION_DISTANCE)
-    end
-end)
-
--- 退出清理
-UserInputService.InputBegan:Connect(function(input)
-    if input.KeyCode == Enum.KeyCode.Delete then
-        RunService:UnbindFromRenderStep("AimAssistant")
-        FOVRing:Remove()
-        ScreenGui:Destroy()
-    end
-end)
      end 
 })
