@@ -749,7 +749,3 @@ Tab:AddButton({
 loadstring(game:HttpGet("https://raw.githubusercontent.com/iwantsom3/script/refs/heads/main/Gag"))()
      end 
 })
-
-Tab:AddButton({
-    Name = "透视",
-    Callback = function()
