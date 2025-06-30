@@ -522,19 +522,12 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/gumanba/Scripts/refs/
 Tab:AddButton({
     Name = "不知道叫啥3",
     Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/HeadHarse/Dusty/refs/heads/main/IncredibleDusk"))()ttpGet('https://pastefy.app/7vZN3EwV/raw'))()
-     end 
-})
-
-Tab:AddButton({
-    Name = "不知道叫啥4",
-    Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/hassanxzayn-lua/NEOXHUBMAIN/refs/heads/main/loader", true))()
      end 
 })
 
 Tab:AddButton({
-    Name = "NatHub(内有刷券功能)",
+    Name = "NatHub内有刷券功能",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/ArdyBotzz/NatHub/refs/heads/master/NatHub.lua"))()
      end 
