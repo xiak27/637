@@ -307,6 +307,13 @@ loadstring(game:HttpGet(('https://raw.githubusercontent.com/SkrillexMe/SkrillexL
 })
 
 Tab:AddButton({
+    Name = "晓空飞行",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/xiak27/637/refs/heads/main/xiaok.lua"))()
+     end 
+})
+
+Tab:AddButton({
 	Name = "最牛逼透视",
 	Callback = function()       loadstring(game:HttpGet("https://pastebin.com/raw/uw2P2fbY"))()
   	end    
