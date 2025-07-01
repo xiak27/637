@@ -209,6 +209,22 @@ Tab:AddTextbox({
 })
 
 Tab:AddTextbox({
+	Name = "跳跃高度设置",
+	Default = "",
+	TextDisappear = true,
+	Callback = function(Value)	game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+	end
+})
+
+Tab:AddTextbox({
+	Name = "移动速度设置",
+	Default = "",
+ TextDisappear = true,
+	Callback = function(Value)		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+	end
+})
+
+Tab:AddTextbox({
 	Name = "最大视野设置",
 	Default = "",
 	TextDisappear = true,
@@ -245,8 +261,7 @@ Tab:AddButton({
 
 Tab:AddButton({
   Name = "铁拳",
-  Callback = function()
-  loadstring(game:HttpGet('https://raw.githubusercontent.com/0Ben1/fe/main/obf_rf6iQURzu1fqrytcnLBAvW34C9N55kS9g9G3CKz086rC47M6632sEd4ZZYB0AYgV.lua.txt'))()
+  Callback = function()  loadstring(game:HttpGet('https://raw.githubusercontent.com/0Ben1/fe/main/obf_rf6iQURzu1fqrytcnLBAvW34C9N55kS9g9G3CKz086rC47M6632sEd4ZZYB0AYgV.lua.txt'))()
   end
 })
 
@@ -256,16 +271,11 @@ Tab:AddButton({
   	end    
 })
 
-Tab:AddSlider({
-	Name = "跳跃高度",
-	Min = 50,
-	Max = 200,
-	Default = 50,
-	Color = Color3.fromRGB(255,255,255),
-	Increment = 1,
-	ValueName = "数值",
-	Callback = function(Value)		game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
-  	end    
+Tab:AddButton({
+    Name = "撸管",
+    Callback = function()
+loadstring(game:HttpGet("https://pastefy.app/wa3v2Vgm/raw"))()
+     end 
 })
 
 Tab:AddButton({
@@ -273,18 +283,6 @@ Tab:AddButton({
 	Callback = function()
 loadstring(game:HttpGet("https://pastebin.com/raw/zXk4Rq2r"))()
   end
-})
-
-Tab:AddSlider({
-	Name = "速度",
-	Min = 16,
-	Max = 200,
-	Default = 16,
-	Color = Color3.fromRGB(255,255,255),
-	Increment = 1,
-	ValueName = "数值",
-	Callback = function(Value)	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
-	end    
 })
 
 Tab:AddButton({
@@ -309,6 +307,26 @@ loadstring(game:HttpGet(('https://raw.githubusercontent.com/SkrillexMe/SkrillexL
 })
 
 Tab:AddButton({
+	Name = "最牛逼透视",
+	Callback = function()       loadstring(game:HttpGet("https://pastebin.com/raw/uw2P2fbY"))()
+  	end    
+})
+
+Tab:AddButton({
+    Name = "飞车",
+    Callback = function()
+loadstring(game:HttpGet("https://pastebin.com/raw/G3GnBCyC", true))()
+     end 
+})
+
+Tab:AddButton({
+    Name = "穿墙",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/TtmScripter/OtherScript/main/Noclip"))()
+     end 
+})
+
+Tab:AddButton({
 	Name = "阿尔宙斯自瞄",
 	Callback = function()     loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/chillz-workshop/main/Arceus%20Aimbot.lua"))()    
   	end    
@@ -320,12 +338,7 @@ Tab:AddButton({
   	end    
 })
 
-Tab:AddButton({
-	Name = "爬墙",
-	Callback = function()
-loadstring(game:HttpGet("https://pastebin.com/raw/zXk4Rq2r"))()
-  end
-})
+
 local Tab = Window:MakeTab({
 	Name = "无限r币🤑",
 	Icon = "rbxassetid://7734068321",
