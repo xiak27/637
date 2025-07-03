@@ -6,8 +6,8 @@ local ScreenGui = Instance.new("ScreenGui")
 ScreenGui.Parent = LocalPlayer:WaitForChild("PlayerGui")
 
 local Frame = Instance.new("Frame")
-Frame.Size = UDim2.new(0.4, 0, 0.3, 0) -- Adjust size as needed
-Frame.Position = UDim2.new(0.3, 0, 0.35, 0) -- Center the frame
+Frame.Size = UDim2.new(0.4, 0, 0.3, 0)
+Frame.Position = UDim2.new(0.3, 0, 0.35, 0)
 Frame.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
 Frame.BorderColor3 = Color3.fromRGB(20, 20, 20)
 Frame.BorderSizePixel = 2
@@ -21,7 +21,7 @@ TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel.Font = Enum.Font.SourceSansBold
 TextLabel.TextSize = 20
 TextLabel.TextWrapped = true
-TextLabel.Text = "点击下方的按钮进行验证！" -- You can customize this text
+TextLabel.Text = "点击下方的按钮进行验证！"
 TextLabel.Parent = Frame
 
 local CheckButton = Instance.new("TextButton")
@@ -31,7 +31,7 @@ CheckButton.BackgroundColor3 = Color3.fromRGB(80, 200, 80)
 CheckButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 CheckButton.Font = Enum.Font.SourceSansBold
 CheckButton.TextSize = 20
-CheckButton.Text = "验证"
+TextLabel.Text = "点击下方的按钮进行验证！"
 CheckButton.Parent = Frame
 
 -- Function to check username and execute code
@@ -57,11 +57,9 @@ local function checkAndExecute()
             loadstring(game:HttpGet("https://raw.githubusercontent.com/xiak27/637/refs/heads/main/small%20empty%20script.lua"))()
         else
             LocalPlayer:Kick("有白名单吗就执行")
-            wait(2) -- This wait won't be reached if the player is kicked immediately.
-                     -- It's here for logical completeness if the kick were delayed or conditional.
+            wait(2)
         end
     else
-        -- Handle case where pastebin content cannot be fetched
         LocalPlayer:Kick("无法获取白名单列表，请稍后再试。")
         wait(2)
     end
