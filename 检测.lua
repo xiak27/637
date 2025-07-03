@@ -4,15 +4,12 @@ local RunService = game:GetService("RunService")
 local localPlayer = Players.LocalPlayer
 local playerGui = localPlayer:WaitForChild("PlayerGui")
 
--- 创建简单可靠的弹窗
 local function createPopup()
-    -- 创建屏幕GUI
     local screenGui = Instance.new("ScreenGui")
     screenGui.Name = "WhitelistPopup"
     screenGui.ResetOnSpawn = false
     screenGui.Parent = playerGui
     
-    -- 创建半透明背景
     local background = Instance.new("Frame")
     background.Name = "Background"
     background.Size = UDim2.new(1, 0, 1, 0)
@@ -22,7 +19,6 @@ local function createPopup()
     background.ZIndex = 1
     background.Parent = screenGui
     
-    -- 创建主弹窗
     local frame = Instance.new("Frame")
     frame.Name = "PopupFrame"
     frame.Size = UDim2.new(0, 300, 0, 200)
@@ -33,12 +29,10 @@ local function createPopup()
     frame.ZIndex = 2
     frame.Parent = screenGui
     
-    -- 添加圆角
     local corner = Instance.new("UICorner")
     corner.CornerRadius = UDim.new(0, 8)
     corner.Parent = frame
     
-    -- 标题
     local title = Instance.new("TextLabel")
     title.Name = "Title"
     title.Text = "白名单验证"
@@ -50,12 +44,10 @@ local function createPopup()
     title.ZIndex = 3
     title.Parent = frame
     
-    -- 标题圆角
     local titleCorner = Instance.new("UICorner")
     titleCorner.CornerRadius = UDim.new(0, 8)
     titleCorner.Parent = title
     
-    -- 描述文本
     local description = Instance.new("TextLabel")
     description.Name = "Description"
     description.Text = "点击按钮验证您的账户"
@@ -69,7 +61,6 @@ local function createPopup()
     description.ZIndex = 3
     description.Parent = frame
     
-    -- 按钮
     local button = Instance.new("TextButton")
     button.Name = "VerifyButton"
     button.Text = "开始验证"
@@ -82,12 +73,10 @@ local function createPopup()
     button.ZIndex = 3
     button.Parent = frame
     
-    -- 按钮圆角
     local buttonCorner = Instance.new("UICorner")
     buttonCorner.CornerRadius = UDim.new(0, 6)
     buttonCorner.Parent = button
     
-    -- 加载指示器
     local loadingCircle = Instance.new("Frame")
     loadingCircle.Name = "LoadingCircle"
     loadingCircle.Size = UDim2.new(0, 30, 0, 30)
@@ -108,7 +97,6 @@ local function createPopup()
     circleCorner.CornerRadius = UDim.new(1, 0)
     circleCorner.Parent = circle
     
-    -- 初始动画
     frame.Size = UDim2.new(0, 0, 0, 0)
     TweenService:Create(frame, TweenInfo.new(0.5), 
         {Size = UDim2.new(0, 300, 0, 200)}):Play()
@@ -116,7 +104,6 @@ local function createPopup()
     return screenGui, button, loadingCircle
 end
 
--- 白名单验证函数
 local function verifyWhitelist()
     local playerName = localPlayer.Name
     
@@ -142,21 +129,17 @@ local function verifyWhitelist()
     end
 end
 
--- 创建弹窗并处理按钮点击
 local success, popup, button, loadingCircle = pcall(createPopup)
 
 if not success then
-    -- 如果UI创建失败，直接执行验证
     verifyWhitelist()
     return
 end
 
 button.MouseButton1Click:Connect(function()
-    -- 隐藏按钮，显示加载指示器
     button.Visible = false
     loadingCircle.Visible = true
     
-    -- 旋转加载动画
     local rotation = 0
     local connection
     connection = RunService.RenderStepped:Connect(function(dt)
@@ -164,13 +147,10 @@ button.MouseButton1Click:Connect(function()
         loadingCircle.Rotation = rotation
     end)
     
-    -- 延迟执行验证
     wait(1.5)
     
-    -- 清理UI
     if connection then connection:Disconnect() end
     pcall(function() popup:Destroy() end)
     
-    -- 执行验证
     verifyWhitelist()
 end)
