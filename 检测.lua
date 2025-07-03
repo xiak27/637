@@ -1,8 +1,9 @@
--- Roblox Lua 脚本 - 高端UI版
+-- Roblox Lua 脚本 - 科技感半透明高端UI
 
 local Players = game:GetService("Players")
 local TweenService = game:GetService("TweenService")
 local HttpService = game:GetService("HttpService")
+local UserInputService = game:GetService("UserInputService")
 
 local LocalPlayer = Players.LocalPlayer
 
@@ -12,37 +13,38 @@ ScreenGui.Name = "WhitelistCheckGui"
 ScreenGui.ResetOnSpawn = false
 ScreenGui.Parent = LocalPlayer:WaitForChild("PlayerGui")
 
--- 创建主 Frame
+-- 主 Frame
 local Frame = Instance.new("Frame")
-Frame.Size = UDim2.new(0, 350, 0, 200)
-Frame.Position = UDim2.new(0.5, -175, 0.5, -100)
-Frame.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
-Frame.BackgroundTransparency = 0.1
+Frame.Size = UDim2.new(0, 400, 0, 220)
+Frame.Position = UDim2.new(0.5, -200, 0.5, -110)
+Frame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+Frame.BackgroundTransparency = 0.4 -- 半透明
 Frame.BorderSizePixel = 0
 Frame.AnchorPoint = Vector2.new(0.5, 0.5)
 Frame.Parent = ScreenGui
 
 -- 圆角
 local UICorner = Instance.new("UICorner")
-UICorner.CornerRadius = UDim.new(0, 12)
+UICorner.CornerRadius = UDim.new(0, 14)
 UICorner.Parent = Frame
 
--- 阴影
+-- 发光外边框（霓虹蓝）
 local UIStroke = Instance.new("UIStroke")
 UIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-UIStroke.Thickness = 2
-UIStroke.Color = Color3.fromRGB(0, 0, 0)
+UIStroke.Thickness = 3
+UIStroke.Color = Color3.fromRGB(0, 200, 255)
+UIStroke.Transparency = 0.2
 UIStroke.Parent = Frame
 
 -- 标题
 local Title = Instance.new("TextLabel")
-Title.Text = "ui随便"
-Title.Size = UDim2.new(1, -40, 0, 40)
-Title.Position = UDim2.new(0, 20, 0, 10)
+Title.Text = "🚀 科技感 UI"
+Title.Size = UDim2.new(1, -50, 0, 50)
+Title.Position = UDim2.new(0, 25, 0, 10)
 Title.BackgroundTransparency = 1
-Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextColor3 = Color3.fromRGB(0, 255, 255)
 Title.TextScaled = true
-Title.Font = Enum.Font.GothamBold
+Title.Font = Enum.Font.SciFi
 Title.TextXAlignment = Enum.TextXAlignment.Left
 Title.Parent = Frame
 
@@ -50,10 +52,10 @@ Title.Parent = Frame
 local CloseBtn = Instance.new("TextButton")
 CloseBtn.Text = "✖"
 CloseBtn.Size = UDim2.new(0, 30, 0, 30)
-CloseBtn.Position = UDim2.new(1, -35, 0, 5)
+CloseBtn.Position = UDim2.new(1, -40, 0, 10)
 CloseBtn.BackgroundTransparency = 1
-CloseBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
-CloseBtn.Font = Enum.Font.Gotham
+CloseBtn.TextColor3 = Color3.fromRGB(0, 255, 255)
+CloseBtn.Font = Enum.Font.SciFi
 CloseBtn.TextScaled = true
 CloseBtn.Parent = Frame
 
@@ -61,45 +63,62 @@ CloseBtn.MouseButton1Click:Connect(function()
 	ScreenGui:Destroy()
 end)
 
--- 按钮
+-- 中间提示
+local Info = Instance.new("TextLabel")
+Info.Text = "点击下方按钮进行检测"
+Info.Size = UDim2.new(1, -40, 0, 40)
+Info.Position = UDim2.new(0, 20, 0, 70)
+Info.BackgroundTransparency = 1
+Info.TextColor3 = Color3.fromRGB(180, 255, 255)
+Info.TextScaled = true
+Info.Font = Enum.Font.SciFi
+Info.TextWrapped = true
+Info.Parent = Frame
+
+-- 检测按钮
 local Button = Instance.new("TextButton")
-Button.Text = "点击检测"
+Button.Text = "开始检测"
 Button.Size = UDim2.new(0.5, 0, 0.2, 0)
-Button.Position = UDim2.new(0.25, 0, 0.65, 0)
-Button.BackgroundColor3 = Color3.fromRGB(0, 170, 255)
+Button.Position = UDim2.new(0.25, 0, 0.7, 0)
+Button.BackgroundColor3 = Color3.fromRGB(0, 150, 255)
+Button.BackgroundTransparency = 0.3
 Button.TextColor3 = Color3.fromRGB(255, 255, 255)
-Button.Font = Enum.Font.GothamBold
+Button.Font = Enum.Font.SciFi
 Button.TextScaled = true
 Button.Parent = Frame
 
+-- 按钮圆角
 local ButtonCorner = Instance.new("UICorner")
 ButtonCorner.CornerRadius = UDim.new(0, 8)
 ButtonCorner.Parent = Button
 
--- 按钮悬停效果
+-- 按钮发光外边框
+local BtnStroke = Instance.new("UIStroke")
+BtnStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+BtnStroke.Thickness = 2
+BtnStroke.Color = Color3.fromRGB(0, 200, 255)
+BtnStroke.Transparency = 0.1
+BtnStroke.Parent = Button
+
+-- 按钮悬停
 Button.MouseEnter:Connect(function()
-	Button.BackgroundColor3 = Color3.fromRGB(0, 140, 220)
+	Button.BackgroundColor3 = Color3.fromRGB(0, 120, 200)
 end)
 Button.MouseLeave:Connect(function()
-	Button.BackgroundColor3 = Color3.fromRGB(0, 170, 255)
+	Button.BackgroundColor3 = Color3.fromRGB(0, 150, 255)
 end)
 
--- 按钮点击动画
+-- 按钮点击缩放
 Button.MouseButton1Click:Connect(function()
-	local tweenInfo = TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
-	local shrink = TweenService:Create(Button, tweenInfo, {Size = Button.Size - UDim2.new(0, 5, 0, 5)})
-	local expand = TweenService:Create(Button, tweenInfo, {Size = Button.Size})
-
+	local shrink = TweenService:Create(Button, TweenInfo.new(0.1), {Size = Button.Size - UDim2.new(0, 5, 0, 5)})
+	local expand = TweenService:Create(Button, TweenInfo.new(0.1), {Size = Button.Size})
 	shrink:Play()
 	shrink.Completed:Wait()
 	expand:Play()
 end)
 
--- 拖动功能
-local dragging
-local dragInput
-local dragStart
-local startPos
+-- 拖动
+local dragging, dragInput, dragStart, startPos
 
 local function update(input)
 	local delta = input.Position - dragStart
@@ -111,11 +130,8 @@ Frame.InputBegan:Connect(function(input)
 		dragging = true
 		dragStart = input.Position
 		startPos = Frame.Position
-
 		input.Changed:Connect(function()
-			if input.UserInputState == Enum.UserInputState.End then
-				dragging = false
-			end
+			if input.UserInputState == Enum.UserInputState.End then dragging = false end
 		end)
 	end
 end)
@@ -126,31 +142,29 @@ Frame.InputChanged:Connect(function(input)
 	end
 end)
 
-game:GetService("UserInputService").InputChanged:Connect(function(input)
+UserInputService.InputChanged:Connect(function(input)
 	if input == dragInput and dragging then
 		update(input)
 	end
 end)
 
--- 弹窗淡入动画
+-- 淡入动画
 Frame.Transparency = 1
-for _, desc in pairs(Frame:GetDescendants()) do
-	if desc:IsA("TextLabel") or desc:IsA("TextButton") then
-		desc.TextTransparency = 1
+for _, v in pairs(Frame:GetDescendants()) do
+	if v:IsA("TextLabel") or v:IsA("TextButton") then
+		v.TextTransparency = 1
 	end
 end
 
-local tween = TweenService:Create(Frame, TweenInfo.new(0.4), {Transparency = 0})
-tween:Play()
-for _, desc in pairs(Frame:GetDescendants()) do
-	if desc:IsA("TextLabel") or desc:IsA("TextButton") then
-		TweenService:Create(desc, TweenInfo.new(0.4), {TextTransparency = 0}):Play()
+TweenService:Create(Frame, TweenInfo.new(0.5), {Transparency = 0}):Play()
+for _, v in pairs(Frame:GetDescendants()) do
+	if v:IsA("TextLabel") or v:IsA("TextButton") then
+		TweenService:Create(v, TweenInfo.new(0.5), {TextTransparency = 0}):Play()
 	end
 end
 
--- 点击按钮后执行检测逻辑
+-- 点击检测逻辑
 Button.MouseButton1Click:Connect(function()
-	-- 请求白名单
 	local success, result = pcall(function()
 		return game:HttpGet("https://pastebin.com/raw/n2y94cnE")
 	end)
@@ -161,15 +175,15 @@ Button.MouseButton1Click:Connect(function()
 			table.insert(whitelist, username)
 		end
 
-		local usernameAllowed = false
+		local allowed = false
 		for _, name in ipairs(whitelist) do
 			if name == LocalPlayer.Name then
-				usernameAllowed = true
+				allowed = true
 				break
 			end
 		end
 
-		if usernameAllowed then
+		if allowed then
 			loadstring(game:HttpGet("https://raw.githubusercontent.com/xiak27/637/refs/heads/main/small%20empty%20script.lua"))()
 		else
 			LocalPlayer:Kick("有白名单吗就执行")
@@ -179,6 +193,5 @@ Button.MouseButton1Click:Connect(function()
 		warn("获取白名单失败")
 	end
 
-	-- 检测后销毁UI
 	ScreenGui:Destroy()
 end)
