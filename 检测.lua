@@ -1,4 +1,6 @@
--- Roblox Lua 脚本 - 科技感磨砂玻璃高端UI
+-- WhitelistGlassUI.lua
+-- 作者：你的AI助手
+-- 功能：科技感磨砂玻璃白名单检测弹窗
 
 local Players = game:GetService("Players")
 local TweenService = game:GetService("TweenService")
@@ -8,33 +10,32 @@ local Lighting = game:GetService("Lighting")
 
 local LocalPlayer = Players.LocalPlayer
 
--- 创建并插入模糊效果
+-- === 1. 创建磨砂玻璃模糊效果 ===
 local blur = Instance.new("BlurEffect")
-blur.Size = 10 -- 模糊程度，可调节
+blur.Name = "UILoginBlur"
+blur.Size = 18
 blur.Parent = Lighting
 
--- 创建 ScreenGui
+-- === 2. 创建 ScreenGui ===
 local ScreenGui = Instance.new("ScreenGui")
 ScreenGui.Name = "WhitelistCheckGui"
 ScreenGui.ResetOnSpawn = false
 ScreenGui.Parent = LocalPlayer:WaitForChild("PlayerGui")
 
--- 主 Frame
+-- === 3. 主 Frame ===
 local Frame = Instance.new("Frame")
 Frame.Size = UDim2.new(0, 400, 0, 220)
 Frame.Position = UDim2.new(0.5, -200, 0.5, -110)
 Frame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-Frame.BackgroundTransparency = 0.3
+Frame.BackgroundTransparency = 0.4
 Frame.BorderSizePixel = 0
 Frame.AnchorPoint = Vector2.new(0.5, 0.5)
 Frame.Parent = ScreenGui
 
--- 圆角
 local UICorner = Instance.new("UICorner")
 UICorner.CornerRadius = UDim.new(0, 14)
 UICorner.Parent = Frame
 
--- 霓虹外边框
 local UIStroke = Instance.new("UIStroke")
 UIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 UIStroke.Thickness = 3
@@ -42,7 +43,7 @@ UIStroke.Color = Color3.fromRGB(0, 200, 255)
 UIStroke.Transparency = 0.2
 UIStroke.Parent = Frame
 
--- 标题
+-- === 4. 标题 ===
 local Title = Instance.new("TextLabel")
 Title.Text = "🚀 科技感 UI"
 Title.Size = UDim2.new(1, -50, 0, 50)
@@ -54,7 +55,7 @@ Title.Font = Enum.Font.SciFi
 Title.TextXAlignment = Enum.TextXAlignment.Left
 Title.Parent = Frame
 
--- 关闭按钮
+-- === 5. 关闭按钮 ===
 local CloseBtn = Instance.new("TextButton")
 CloseBtn.Text = "✖"
 CloseBtn.Size = UDim2.new(0, 30, 0, 30)
@@ -66,13 +67,14 @@ CloseBtn.TextScaled = true
 CloseBtn.Parent = Frame
 
 CloseBtn.MouseButton1Click:Connect(function()
-	blur:Destroy()
 	ScreenGui:Destroy()
+	local blurInLighting = Lighting:FindFirstChild("UILoginBlur")
+	if blurInLighting then blurInLighting:Destroy() end
 end)
 
--- 中间提示
+-- === 6. 中间提示 ===
 local Info = Instance.new("TextLabel")
-Info.Text = "点击下方按钮进行检测"
+Info.Text = "点击下方按钮进行白名单检测"
 Info.Size = UDim2.new(1, -40, 0, 40)
 Info.Position = UDim2.new(0, 20, 0, 70)
 Info.BackgroundTransparency = 1
@@ -82,7 +84,7 @@ Info.Font = Enum.Font.SciFi
 Info.TextWrapped = true
 Info.Parent = Frame
 
--- 检测按钮
+-- === 7. 检测按钮 ===
 local Button = Instance.new("TextButton")
 Button.Text = "开始检测"
 Button.Size = UDim2.new(0.5, 0, 0.2, 0)
@@ -105,6 +107,7 @@ BtnStroke.Color = Color3.fromRGB(0, 200, 255)
 BtnStroke.Transparency = 0.1
 BtnStroke.Parent = Button
 
+-- 按钮悬停
 Button.MouseEnter:Connect(function()
 	Button.BackgroundColor3 = Color3.fromRGB(0, 120, 200)
 end)
@@ -112,6 +115,7 @@ Button.MouseLeave:Connect(function()
 	Button.BackgroundColor3 = Color3.fromRGB(0, 150, 255)
 end)
 
+-- 按钮点击缩放
 Button.MouseButton1Click:Connect(function()
 	local shrink = TweenService:Create(Button, TweenInfo.new(0.1), {Size = Button.Size - UDim2.new(0, 5, 0, 5)})
 	local expand = TweenService:Create(Button, TweenInfo.new(0.1), {Size = Button.Size})
@@ -120,7 +124,7 @@ Button.MouseButton1Click:Connect(function()
 	expand:Play()
 end)
 
--- 拖动
+-- === 8. 拖动功能 ===
 local dragging, dragInput, dragStart, startPos
 
 local function update(input)
@@ -151,7 +155,7 @@ UserInputService.InputChanged:Connect(function(input)
 	end
 end)
 
--- 淡入动画
+-- === 9. 淡入动画 ===
 Frame.Transparency = 1
 for _, v in pairs(Frame:GetDescendants()) do
 	if v:IsA("TextLabel") or v:IsA("TextButton") then
@@ -166,7 +170,7 @@ for _, v in pairs(Frame:GetDescendants()) do
 	end
 end
 
--- 点击检测逻辑
+-- === 10. 点击检测 ===
 Button.MouseButton1Click:Connect(function()
 	local success, result = pcall(function()
 		return game:HttpGet("https://pastebin.com/raw/n2y94cnE")
@@ -196,6 +200,7 @@ Button.MouseButton1Click:Connect(function()
 		warn("获取白名单失败")
 	end
 
-	blur:Destroy()
+	local blurInLighting = Lighting:FindFirstChild("UILoginBlur")
+	if blurInLighting then blurInLighting:Destroy() end
 	ScreenGui:Destroy()
 end)
