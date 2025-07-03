@@ -1,11 +1,17 @@
--- Roblox Lua 脚本 - 科技感半透明高端UI
+-- Roblox Lua 脚本 - 科技感磨砂玻璃高端UI
 
 local Players = game:GetService("Players")
 local TweenService = game:GetService("TweenService")
 local HttpService = game:GetService("HttpService")
 local UserInputService = game:GetService("UserInputService")
+local Lighting = game:GetService("Lighting")
 
 local LocalPlayer = Players.LocalPlayer
+
+-- 创建并插入模糊效果
+local blur = Instance.new("BlurEffect")
+blur.Size = 10 -- 模糊程度，可调节
+blur.Parent = Lighting
 
 -- 创建 ScreenGui
 local ScreenGui = Instance.new("ScreenGui")
@@ -18,7 +24,7 @@ local Frame = Instance.new("Frame")
 Frame.Size = UDim2.new(0, 400, 0, 220)
 Frame.Position = UDim2.new(0.5, -200, 0.5, -110)
 Frame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-Frame.BackgroundTransparency = 0.4 -- 半透明
+Frame.BackgroundTransparency = 0.3
 Frame.BorderSizePixel = 0
 Frame.AnchorPoint = Vector2.new(0.5, 0.5)
 Frame.Parent = ScreenGui
@@ -28,7 +34,7 @@ local UICorner = Instance.new("UICorner")
 UICorner.CornerRadius = UDim.new(0, 14)
 UICorner.Parent = Frame
 
--- 发光外边框（霓虹蓝）
+-- 霓虹外边框
 local UIStroke = Instance.new("UIStroke")
 UIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 UIStroke.Thickness = 3
@@ -60,6 +66,7 @@ CloseBtn.TextScaled = true
 CloseBtn.Parent = Frame
 
 CloseBtn.MouseButton1Click:Connect(function()
+	blur:Destroy()
 	ScreenGui:Destroy()
 end)
 
@@ -87,12 +94,10 @@ Button.Font = Enum.Font.SciFi
 Button.TextScaled = true
 Button.Parent = Frame
 
--- 按钮圆角
 local ButtonCorner = Instance.new("UICorner")
 ButtonCorner.CornerRadius = UDim.new(0, 8)
 ButtonCorner.Parent = Button
 
--- 按钮发光外边框
 local BtnStroke = Instance.new("UIStroke")
 BtnStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 BtnStroke.Thickness = 2
@@ -100,7 +105,6 @@ BtnStroke.Color = Color3.fromRGB(0, 200, 255)
 BtnStroke.Transparency = 0.1
 BtnStroke.Parent = Button
 
--- 按钮悬停
 Button.MouseEnter:Connect(function()
 	Button.BackgroundColor3 = Color3.fromRGB(0, 120, 200)
 end)
@@ -108,7 +112,6 @@ Button.MouseLeave:Connect(function()
 	Button.BackgroundColor3 = Color3.fromRGB(0, 150, 255)
 end)
 
--- 按钮点击缩放
 Button.MouseButton1Click:Connect(function()
 	local shrink = TweenService:Create(Button, TweenInfo.new(0.1), {Size = Button.Size - UDim2.new(0, 5, 0, 5)})
 	local expand = TweenService:Create(Button, TweenInfo.new(0.1), {Size = Button.Size})
@@ -193,5 +196,6 @@ Button.MouseButton1Click:Connect(function()
 		warn("获取白名单失败")
 	end
 
+	blur:Destroy()
 	ScreenGui:Destroy()
 end)
