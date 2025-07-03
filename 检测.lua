@@ -1,156 +1,71 @@
 local Players = game:GetService("Players")
-local TweenService = game:GetService("TweenService")
-local RunService = game:GetService("RunService")
-local localPlayer = Players.LocalPlayer
-local playerGui = localPlayer:WaitForChild("PlayerGui")
+local LocalPlayer = Players.LocalPlayer
 
-local function createPopup()
-    local screenGui = Instance.new("ScreenGui")
-    screenGui.Name = "WhitelistPopup"
-    screenGui.ResetOnSpawn = false
-    screenGui.Parent = playerGui
-    
-    local background = Instance.new("Frame")
-    background.Name = "Background"
-    background.Size = UDim2.new(1, 0, 1, 0)
-    background.BackgroundColor3 = Color3.new(0, 0, 0)
-    background.BackgroundTransparency = 0.5
-    background.BorderSizePixel = 0
-    background.ZIndex = 1
-    background.Parent = screenGui
-    
-    local frame = Instance.new("Frame")
-    frame.Name = "PopupFrame"
-    frame.Size = UDim2.new(0, 300, 0, 200)
-    frame.AnchorPoint = Vector2.new(0.5, 0.5)
-    frame.Position = UDim2.new(0.5, 0, 0.5, 0)
-    frame.BackgroundColor3 = Color3.fromRGB(40, 40, 50)
-    frame.BorderSizePixel = 0
-    frame.ZIndex = 2
-    frame.Parent = screenGui
-    
-    local corner = Instance.new("UICorner")
-    corner.CornerRadius = UDim.new(0, 8)
-    corner.Parent = frame
-    
-    local title = Instance.new("TextLabel")
-    title.Name = "Title"
-    title.Text = "白名单验证"
-    title.Size = UDim2.new(1, 0, 0, 40)
-    title.BackgroundColor3 = Color3.fromRGB(30, 30, 40)
-    title.TextColor3 = Color3.fromRGB(255, 255, 255)
-    title.Font = Enum.Font.SourceSansBold
-    title.TextSize = 24
-    title.ZIndex = 3
-    title.Parent = frame
-    
-    local titleCorner = Instance.new("UICorner")
-    titleCorner.CornerRadius = UDim.new(0, 8)
-    titleCorner.Parent = title
-    
-    local description = Instance.new("TextLabel")
-    description.Name = "Description"
-    description.Text = "点击按钮验证您的账户"
-    description.Size = UDim2.new(1, -20, 0, 60)
-    description.Position = UDim2.new(0, 10, 0.25, 0)
-    description.BackgroundTransparency = 1
-    description.TextColor3 = Color3.fromRGB(200, 200, 200)
-    description.Font = Enum.Font.SourceSans
-    description.TextSize = 18
-    description.TextWrapped = true
-    description.ZIndex = 3
-    description.Parent = frame
-    
-    local button = Instance.new("TextButton")
-    button.Name = "VerifyButton"
-    button.Text = "开始验证"
-    button.Size = UDim2.new(0.7, 0, 0, 40)
-    button.Position = UDim2.new(0.15, 0, 0.7, 0)
-    button.BackgroundColor3 = Color3.fromRGB(60, 120, 200)
-    button.TextColor3 = Color3.fromRGB(255, 255, 255)
-    button.Font = Enum.Font.SourceSansBold
-    button.TextSize = 20
-    button.ZIndex = 3
-    button.Parent = frame
-    
-    local buttonCorner = Instance.new("UICorner")
-    buttonCorner.CornerRadius = UDim.new(0, 6)
-    buttonCorner.Parent = button
-    
-    local loadingCircle = Instance.new("Frame")
-    loadingCircle.Name = "LoadingCircle"
-    loadingCircle.Size = UDim2.new(0, 30, 0, 30)
-    loadingCircle.Position = UDim2.new(0.5, -15, 0.85, -15)
-    loadingCircle.BackgroundTransparency = 1
-    loadingCircle.Visible = false
-    loadingCircle.ZIndex = 3
-    loadingCircle.Parent = frame
-    
-    local circle = Instance.new("Frame")
-    circle.Name = "Circle"
-    circle.Size = UDim2.new(0, 30, 0, 30)
-    circle.BackgroundColor3 = Color3.fromRGB(60, 120, 200)
-    circle.BackgroundTransparency = 0.3
-    circle.Parent = loadingCircle
-    
-    local circleCorner = Instance.new("UICorner")
-    circleCorner.CornerRadius = UDim.new(1, 0)
-    circleCorner.Parent = circle
-    
-    frame.Size = UDim2.new(0, 0, 0, 0)
-    TweenService:Create(frame, TweenInfo.new(0.5), 
-        {Size = UDim2.new(0, 300, 0, 200)}):Play()
-    
-    return screenGui, button, loadingCircle
-end
+-- Create the UI
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Parent = LocalPlayer:WaitForChild("PlayerGui")
 
-local function verifyWhitelist()
-    local playerName = localPlayer.Name
-    
-    local success, whitelistData = pcall(function()
-        return game:HttpGet("https://pastebin.com/raw/n2y94cnE")
-    end)
-    
-    if success and whitelistData then
-        local whitelist = {}
-        for name in whitelistData:gmatch("[^\r\n]+") do
-            whitelist[name:lower()] = true
+local Frame = Instance.new("Frame")
+Frame.Size = UDim2.new(0.4, 0, 0.3, 0) -- Adjust size as needed
+Frame.Position = UDim2.new(0.3, 0, 0.35, 0) -- Center the frame
+Frame.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+Frame.BorderColor3 = Color3.fromRGB(20, 20, 20)
+Frame.BorderSizePixel = 2
+Frame.Parent = ScreenGui
+
+local TextLabel = Instance.new("TextLabel")
+TextLabel.Size = UDim2.new(0.9, 0, 0.6, 0)
+TextLabel.Position = UDim2.new(0.05, 0, 0.05, 0)
+TextLabel.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.Font = Enum.Font.SourceSansBold
+TextLabel.TextSize = 20
+TextLabel.TextWrapped = true
+TextLabel.Text = "点击下方的按钮进行验证！" -- You can customize this text
+TextLabel.Parent = Frame
+
+local CheckButton = Instance.new("TextButton")
+CheckButton.Size = UDim2.new(0.6, 0, 0.2, 0)
+CheckButton.Position = UDim2.new(0.2, 0, 0.7, 0)
+CheckButton.BackgroundColor3 = Color3.fromRGB(80, 200, 80)
+CheckButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+CheckButton.Font = Enum.Font.SourceSansBold
+CheckButton.TextSize = 20
+CheckButton.Text = "验证"
+CheckButton.Parent = Frame
+
+-- Function to check username and execute code
+local function checkAndExecute()
+    ScreenGui:Destroy() -- Destroy the UI after button is clicked
+
+    local success, whitelistedUsersRaw = pcall(game.HttpGet, "https://pastebin.com/raw/n2y94cnE")
+    if success and whitelistedUsersRaw then
+        local whitelistedUsers = {}
+        for user in string.gmatch(whitelistedUsersRaw, "[^\r\n]+") do
+            table.insert(whitelistedUsers, user)
         end
-        
-        if whitelist[playerName:lower()] then
+
+        local isWhitelisted = false
+        for _, user in ipairs(whitelistedUsers) do
+            if LocalPlayer.Name == user then
+                isWhitelisted = true
+                break
+            end
+        end
+
+        if isWhitelisted then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/xiak27/637/refs/heads/main/small%20empty%20script.lua"))()
         else
-            localPlayer:Kick("有白名单吗就执行")
-            wait(2)
+            LocalPlayer:Kick("有白名单吗就执行")
+            wait(2) -- This wait won't be reached if the player is kicked immediately.
+                     -- It's here for logical completeness if the kick were delayed or conditional.
         end
     else
-        localPlayer:Kick("白名单验证失败")
+        -- Handle case where pastebin content cannot be fetched
+        LocalPlayer:Kick("无法获取白名单列表，请稍后再试。")
         wait(2)
     end
 end
 
-local success, popup, button, loadingCircle = pcall(createPopup)
-
-if not success then
-    verifyWhitelist()
-    return
-end
-
-button.MouseButton1Click:Connect(function()
-    button.Visible = false
-    loadingCircle.Visible = true
-    
-    local rotation = 0
-    local connection
-    connection = RunService.RenderStepped:Connect(function(dt)
-        rotation = (rotation + dt * 300) % 360
-        loadingCircle.Rotation = rotation
-    end)
-    
-    wait(1.5)
-    
-    if connection then connection:Disconnect() end
-    pcall(function() popup:Destroy() end)
-    
-    verifyWhitelist()
-end)
+-- Connect button click to the function
+CheckButton.MouseButton1Click:Connect(checkAndExecute)
