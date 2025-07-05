@@ -1,167 +1,3 @@
--- 创建主界面
-local ScreenGui = Instance.new("ScreenGui")
-ScreenGui.Name = "PlatoboostVerifier"
-ScreenGui.Parent = game:GetService("CoreGui")
-
--- 创建加载遮罩
-local LoadingOverlay = Instance.new("Frame")
-LoadingOverlay.Size = UDim2.new(1, 0, 1, 0)
-LoadingOverlay.Position = UDim2.new(0, 0, 0, 0)
-LoadingOverlay.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-LoadingOverlay.BackgroundTransparency = 0.5
-LoadingOverlay.ZIndex = 10
-LoadingOverlay.Visible = true
-LoadingOverlay.Parent = ScreenGui
-
-local LoadingLabel = Instance.new("TextLabel")
-LoadingLabel.Text = "正在验证卡密..."
-LoadingLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-LoadingLabel.TextSize = 24
-LoadingLabel.Font = Enum.Font.GothamBold
-LoadingLabel.Size = UDim2.new(0, 300, 0, 60)
-LoadingLabel.Position = UDim2.new(0.5, -150, 0.5, -30)
-LoadingLabel.BackgroundColor3 = Color3.fromRGB(30, 30, 40)
-LoadingLabel.Parent = LoadingOverlay
-
-local LoadingCorner = Instance.new("UICorner")
-LoadingCorner.CornerRadius = UDim.new(0, 12)
-LoadingCorner.Parent = LoadingLabel
-
-local Spinner = Instance.new("ImageLabel")
-Spinner.Image = "rbxassetid://12900334482" -- 旋转加载动画
-Spinner.Size = UDim2.new(0, 40, 0, 40)
-Spinner.Position = UDim2.new(0.5, -20, 0, -50)
-Spinner.BackgroundTransparency = 1
-Spinner.Parent = LoadingLabel
-
--- 主窗口
-local MainFrame = Instance.new("Frame")
-MainFrame.Size = UDim2.new(0, 400, 0, 280)
-MainFrame.Position = UDim2.new(0.5, -200, 0.5, -140)
-MainFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 35)
-MainFrame.BorderSizePixel = 0
-MainFrame.Parent = ScreenGui
-
-local Corner = Instance.new("UICorner")
-Corner.CornerRadius = UDim.new(0, 12)
-Corner.Parent = MainFrame
-
-local DropShadow = Instance.new("ImageLabel")
-DropShadow.Name = "DropShadow"
-DropShadow.Image = "rbxassetid://1316045217"
-DropShadow.ImageColor3 = Color3.new(0, 0, 0)
-DropShadow.ImageTransparency = 0.8
-DropShadow.ScaleType = Enum.ScaleType.Slice
-DropShadow.SliceCenter = Rect.new(10, 10, 118, 118)
-DropShadow.Position = UDim2.new(0, -10, 0, -10)
-DropShadow.Size = UDim2.new(1, 20, 1, 20)
-DropShadow.BackgroundTransparency = 1
-DropShadow.ZIndex = 0
-DropShadow.Parent = MainFrame
-
-local Title = Instance.new("TextLabel")
-Title.Text = "高级功能验证"
-Title.TextColor3 = Color3.fromRGB(220, 220, 255)
-Title.TextSize = 26
-Title.Font = Enum.Font.GothamBold
-Title.Size = UDim2.new(0.9, 0, 0, 60)
-Title.Position = UDim2.new(0.05, 0, 0, 0)
-Title.BackgroundTransparency = 1
-Title.Parent = MainFrame
-
-local Divider = Instance.new("Frame")
-Divider.Size = UDim2.new(0.9, 0, 0, 1)
-Divider.Position = UDim2.new(0.05, 0, 0, 60)
-Divider.BackgroundColor3 = Color3.fromRGB(60, 60, 80)
-Divider.BorderSizePixel = 0
-Divider.Parent = MainFrame
-
--- 复制链接按钮
-local CopyButton = Instance.new("TextButton")
-CopyButton.Text = "复制验证链接"
-CopyButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-CopyButton.TextSize = 18
-CopyButton.Font = Enum.Font.Gotham
-CopyButton.Size = UDim2.new(0.8, 0, 0, 45)
-CopyButton.Position = UDim2.new(0.1, 0, 0, 75)
-CopyButton.BackgroundColor3 = Color3.fromRGB(80, 120, 200)
-CopyButton.Parent = MainFrame
-
-local CopyCorner = Instance.new("UICorner")
-CopyCorner.CornerRadius = UDim.new(0, 8)
-CopyCorner.Parent = CopyButton
-
-local CopyIcon = Instance.new("ImageLabel")
-CopyIcon.Image = "rbxassetid://3926305904"
-CopyIcon.ImageRectOffset = Vector2.new(164, 364)
-CopyIcon.ImageRectSize = Vector2.new(36, 36)
-CopyIcon.Size = UDim2.new(0, 25, 0, 25)
-CopyIcon.Position = UDim2.new(0, 15, 0.5, -12.5)
-CopyIcon.BackgroundTransparency = 1
-CopyIcon.Parent = CopyButton
-
--- 卡密输入框
-local KeyBox = Instance.new("TextBox")
-KeyBox.PlaceholderText = "在此输入卡密"
-KeyBox.Text = ""
-KeyBox.TextColor3 = Color3.fromRGB(255, 255, 255)
-KeyBox.TextSize = 16
-KeyBox.Font = Enum.Font.Gotham
-KeyBox.Size = UDim2.new(0.8, 0, 0, 45)
-KeyBox.Position = UDim2.new(0.1, 0, 0, 135)
-KeyBox.BackgroundColor3 = Color3.fromRGB(40, 40, 50)
-KeyBox.Parent = MainFrame
-
-local KeyCorner = Instance.new("UICorner")
-KeyCorner.CornerRadius = UDim.new(0, 8)
-KeyCorner.Parent = KeyBox
-
-local KeyIcon = Instance.new("ImageLabel")
-KeyIcon.Image = "rbxassetid://3926307971"
-KeyIcon.ImageRectOffset = Vector2.new(964, 324)
-KeyIcon.ImageRectSize = Vector2.new(36, 36)
-KeyIcon.Size = UDim2.new(0, 25, 0, 25)
-KeyIcon.Position = UDim2.new(0, 15, 0.5, -12.5)
-KeyIcon.BackgroundTransparency = 1
-KeyIcon.Parent = KeyBox
-
--- 验证按钮
-local VerifyButton = Instance.new("TextButton")
-VerifyButton.Text = "验证卡密"
-VerifyButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-VerifyButton.TextSize = 18
-VerifyButton.Font = Enum.Font.Gotham
-VerifyButton.Size = UDim2.new(0.8, 0, 0, 45)
-VerifyButton.Position = UDim2.new(0.1, 0, 0, 195)
-VerifyButton.BackgroundColor3 = Color3.fromRGB(70, 160, 70)
-VerifyButton.Parent = MainFrame
-
-local VerifyCorner = Instance.new("UICorner")
-VerifyCorner.CornerRadius = UDim.new(0, 8)
-VerifyCorner.Parent = VerifyButton
-
-local VerifyIcon = Instance.new("ImageLabel")
-VerifyIcon.Image = "rbxassetid://3926307971"
-VerifyIcon.ImageRectOffset = Vector2.new(324, 804)
-VerifyIcon.ImageRectSize = Vector2.new(36, 36)
-VerifyIcon.Size = UDim2.new(0, 25, 0, 25)
-VerifyIcon.Position = UDim2.new(0, 15, 0.5, -12.5)
-VerifyIcon.BackgroundTransparency = 1
-VerifyIcon.Parent = VerifyButton
-
--- 状态标签
-local StatusLabel = Instance.new("TextLabel")
-StatusLabel.Text = "点击复制链接获取卡密"
-StatusLabel.TextColor3 = Color3.fromRGB(150, 150, 180)
-StatusLabel.TextSize = 14
-StatusLabel.Font = Enum.Font.Gotham
-StatusLabel.Size = UDim2.new(0.8, 0, 0, 20)
-StatusLabel.Position = UDim2.new(0.1, 0, 0, 250)
-StatusLabel.BackgroundTransparency = 1
-StatusLabel.Parent = MainFrame
-
--- 包含Boost.lua的内容
---[[ 这里插入Boost.lua的全部内容 ]]
 -------------------------------------------------------------------------------
 --! json library
 --! cryptography library
@@ -474,159 +310,137 @@ else
 end
 ]]--
 -------------------------------------------------------------------------------
--- 卡密自动保存功能
-local function saveKey(key)
-    if key and key ~= "" then
-        if writefile then
-            pcall(function()
-                writefile("黄某脚本_key.txt", key)
-            end)
-            return true
-        end
-    end
-    return false
+-- 使用Platoboost库创建自动保存卡密的系统
+local Players = game:GetService("Players")
+local Player = Players.LocalPlayer
+local PlayerGui = Player:WaitForChild("PlayerGui")
+
+-- 创建UI界面
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "PlatoboostUI"
+screenGui.Parent = PlayerGui
+
+local frame = Instance.new("Frame")
+frame.Size = UDim2.new(0, 300, 0, 200)
+frame.Position = UDim2.new(0.5, -150, 0.5, -100)
+frame.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+frame.BorderSizePixel = 0
+frame.Parent = screenGui
+
+local title = Instance.new("TextLabel")
+title.Text = "Platoboost验证系统"
+title.Size = UDim2.new(1, 0, 0, 30)
+title.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+title.TextColor3 = Color3.new(1, 1, 1)
+title.Font = Enum.Font.GothamBold
+title.Parent = frame
+
+local keyBox = Instance.new("TextBox")
+keyBox.PlaceholderText = "在此输入卡密"
+keyBox.Size = UDim2.new(0.8, 0, 0, 30)
+keyBox.Position = UDim2.new(0.1, 0, 0.3, 0)
+keyBox.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+keyBox.TextColor3 = Color3.new(1, 1, 1)
+keyBox.Parent = frame
+
+local verifyButton = Instance.new("TextButton")
+verifyButton.Text = "验证卡密"
+verifyButton.Size = UDim2.new(0.8, 0, 0, 30)
+verifyButton.Position = UDim2.new(0.1, 0, 0.5, 0)
+verifyButton.BackgroundColor3 = Color3.fromRGB(0, 120, 215)
+verifyButton.TextColor3 = Color3.new(1, 1, 1)
+verifyButton.Parent = frame
+
+local copyButton = Instance.new("TextButton")
+copyButton.Text = "复制链接"
+copyButton.Size = UDim2.new(0.8, 0, 0, 30)
+copyButton.Position = UDim2.new(0.1, 0, 0.7, 0)
+copyButton.BackgroundColor3 = Color3.fromRGB(0, 170, 0)
+copyButton.TextColor3 = Color3.new(1, 1, 1)
+copyButton.Parent = frame
+
+local statusLabel = Instance.new("TextLabel")
+statusLabel.Text = "等待验证..."
+statusLabel.Size = UDim2.new(0.8, 0, 0, 20)
+statusLabel.Position = UDim2.new(0.1, 0, 0.9, 0)
+statusLabel.TextColor3 = Color3.new(1, 1, 1)
+statusLabel.Parent = frame
+
+-- 设置消息回调函数
+onMessage = function(message)
+    statusLabel.Text = message
+    game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "Platoboost",
+        Text = message,
+        Duration = 5
+    })
 end
 
-local function loadKey()
-    if readfile and isfile and isfile("黄某脚本_key.txt") then
-        return pcall(function()
-            return readfile("黄某脚本_key.txt")
-        end)
-    end
-    return nil
-end
-
-local function deleteKey()
-    if delfile and isfile and isfile("黄某脚本_key.txt") then
-        pcall(function()
-            delfile("黄某脚本_key.txt")
-        end)
+-- 自动保存卡密到本地
+local function saveKeyToLocal(key)
+    if writefile then
+        writefile("platoboost_key.txt", key)
         return true
     end
     return false
 end
 
--- 设置消息回调函数
-onMessage = function(message)
-    StatusLabel.Text = message
+-- 尝试加载本地保存的卡密
+local function loadSavedKey()
+    if readfile and isfile("platoboost_key.txt") then
+        return readfile("platoboost_key.txt")
+    end
+    return nil
 end
 
--- 复制链接按钮事件
-CopyButton.MouseButton1Click:Connect(function()
-    copyLink()
-    StatusLabel.Text = "链接已复制到剪贴板！"
+-- 检查并自动验证保存的卡密
+local savedKey = loadSavedKey()
+if savedKey then
+    keyBox.Text = savedKey
+    verifyButton.Text = "正在验证..."
     
-    -- 按钮动画
-    CopyButton.BackgroundColor3 = Color3.fromRGB(60, 100, 180)
-    task.wait(0.1)
-    CopyButton.BackgroundColor3 = Color3.fromRGB(80, 120, 200)
+    task.spawn(function()
+        local success = verifyKey(savedKey)
+        if success then
+            verifyButton.Text = "验证成功!"
+            frame.Visible = false
+            loadstring(game:HttpGet("\104\116\116\112\115\58\47\47\114\97\119\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\120\105\97\111\107\111\110\103\54\47\50\56\50\56\53\53\57\56\47\114\101\102\115\47\104\101\97\100\115\47\109\97\105\110\47\98\98\98\46\108\117\97"))()
+        else
+            verifyButton.Text = "验证卡密"
+            statusLabel.Text = "保存的卡密已失效"
+        end
+    end)
+end
+
+-- 按钮事件处理
+copyButton.MouseButton1Click:Connect(function()
+    copyLink()
+    statusLabel.Text = "链接已复制到剪贴板!"
 end)
 
--- 验证按钮事件
-VerifyButton.MouseButton1Click:Connect(function()
-    local key = KeyBox.Text
-    if key == "" then
-        StatusLabel.Text = "请输入卡密"
-        KeyBox.BackgroundColor3 = Color3.fromRGB(60, 40, 50)
-        task.wait(0.5)
-        KeyBox.BackgroundColor3 = Color3.fromRGB(40, 40, 50)
+verifyButton.MouseButton1Click:Connect(function()
+    local key = keyBox.Text
+    if #key < 5 then
+        statusLabel.Text = "请输入有效的卡密"
         return
     end
     
-    StatusLabel.Text = "验证中..."
-    VerifyButton.Text = "验证中..."
-    VerifyButton.Active = false
+    verifyButton.Text = "验证中..."
     
-    local success = verifyKey(key)
-    
-    if success then
-        StatusLabel.Text = "卡密验证成功！"
-        
-        -- 自动保存卡密
-        if saveKey(key) then
-            StatusLabel.Text = "卡密验证成功！已自动保存"
-        end
-        
-        -- 按钮动画
-        VerifyButton.BackgroundColor3 = Color3.fromRGB(50, 130, 50)
-        VerifyIcon.ImageColor3 = Color3.fromRGB(200, 255, 200)
-        task.wait(0.5)
-        
-        -- 执行核心脚本
-        loadstring(game:HttpGet("\104\116\116\112\115\58\47\47\114\97\119\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\120\105\97\111\107\111\110\103\54\47\50\56\50\56\53\53\57\56\47\114\101\102\115\47\104\101\97\100\115\47\109\97\105\110\47\98\98\98\46\108\117\97"))()
-        
-        -- 渐变关闭UI
-        for i = 1, 10 do
-            MainFrame.BackgroundTransparency = i/10
-            task.wait(0.03)
-        end
-        ScreenGui:Destroy()
-    else
-        StatusLabel.Text = "卡密验证失败"
-        VerifyButton.Text = "验证卡密"
-        VerifyButton.Active = true
-        
-        -- 按钮错误动画
-        VerifyButton.BackgroundColor3 = Color3.fromRGB(180, 70, 70)
-        VerifyIcon.ImageColor3 = Color3.fromRGB(255, 180, 180)
-        task.wait(0.5)
-        VerifyButton.BackgroundColor3 = Color3.fromRGB(70, 160, 70)
-        VerifyIcon.ImageColor3 = Color3.fromRGB(255, 255, 255)
-        
-        -- 删除无效卡密
-        deleteKey()
-    end
-end)
-
--- 自动验证保存的卡密
-local function autoVerify()
-    local savedKey = loadKey()
-    if savedKey then
-        -- 显示加载界面
-        LoadingOverlay.Visible = true
-        KeyBox.Text = "************" -- 显示星号保护卡密
-        
-        StatusLabel.Text = "正在验证保存的卡密..."
-        
-        -- 异步验证
-        spawn(function()
-            local success = verifyKey(savedKey)
+    task.spawn(function()
+        local success = verifyKey(key)
+        if success then
+            saveKeyToLocal(key)  -- 保存验证成功的卡密
+            statusLabel.Text = "卡密验证成功!"
+            verifyButton.Text = "验证成功!"
             
-            if success then
-                StatusLabel.Text = "自动验证成功！"
-                
-                -- 按钮动画
-                VerifyButton.BackgroundColor3 = Color3.fromRGB(50, 130, 50)
-                VerifyIcon.ImageColor3 = Color3.fromRGB(200, 255, 200)
-                task.wait(0.5)
-                
-                -- 执行核心脚本
-                loadstring(game:HttpGet("\104\116\116\112\115\58\47\47\114\97\119\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\120\105\97\111\107\111\110\103\54\47\50\56\50\56\53\53\57\56\47\114\101\102\115\47\104\101\97\100\115\47\109\97\105\110\47\98\98\98\46\108\117\97"))()
-                
-                -- 关闭UI
-                ScreenGui:Destroy()
-            else
-                -- 验证失败，删除无效卡密
-                deleteKey()
-                KeyBox.Text = ""
-                StatusLabel.Text = "保存的卡密无效，请重新输入"
-                LoadingOverlay.Visible = false
-            end
-        end)
-    else
-        -- 没有保存的卡密，直接显示主界面
-        LoadingOverlay.Visible = false
-        StatusLabel.Text = "点击复制链接获取卡密"
-    end
-end
-
--- 初始状态
-MainFrame.Visible = false
-task.wait(0.5) -- 等待UI渲染
-autoVerify() -- 尝试自动验证
-
--- 如果没有自动验证或验证失败，显示主界面
-if LoadingOverlay.Visible then
-      MainFrame.Visible = true
-    LoadingOverlay.Visible = false
-end
+            -- 等待2秒后关闭UI并执行脚本
+            task.wait(2)
+            frame.Visible = false
+            loadstring(game:HttpGet("\104\116\116\112\115\58\47\47\114\97\119\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\120\105\97\111\107\111\110\103\54\47\50\56\50\56\53\53\57\56\47\114\101\102\115\47\104\101\97\100\115\47\109\97\105\110\47\98\98\98\46\108\117\97"))()
+        else
+            verifyButton.Text = "验证卡密"
+            statusLabel.Text = "卡密验证失败"
+        end
+    end)
+end)
