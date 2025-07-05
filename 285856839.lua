@@ -320,15 +320,6 @@ local screenGui = Instance.new("ScreenGui")
 screenGui.Name = "PlatoboostUI"
 screenGui.Parent = PlayerGui
 
--- 创建半透明背景
-local background = Instance.new("Frame")
-background.Size = UDim2.new(1, 0, 1, 0)
-background.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-background.BackgroundTransparency = 0.4
-background.BorderSizePixel = 0
-background.ZIndex = 0
-background.Parent = screenGui
-
 -- 主容器
 local container = Instance.new("Frame")
 container.Size = UDim2.new(0, 350, 0, 400)
